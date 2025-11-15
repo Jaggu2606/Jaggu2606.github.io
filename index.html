@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jagannath Prasad Sahoo - AI & Robotics Engineer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --accent-color: #3b82f6;
+            --text-dark: #1f2937;
+            --text-light: #6b7280;
+            --bg-light: #f9fafb;
+            --bg-white: #ffffff;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: var(--bg-light);
+        }
+
+        /* Navigation */
+        nav {
+            background: var(--bg-white);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 6rem 2rem;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .profile-img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            border: 5px solid white;
+            margin-bottom: 2rem;
+            object-fit: cover;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero .subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            opacity: 0.9;
+        }
+
+        .hero .tagline {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            opacity: 0.8;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: transform 0.3s;
+        }
+
+        .social-links a:hover {
+            transform: scale(1.2);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        /* Section */
+        section {
+            margin-bottom: 4rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-light);
+            margin-bottom: 3rem;
+            font-size: 1.1rem;
+        }
+
+        /* About Section */
+        .about-content {
+            background: var(--bg-white);
+            padding: 3rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            line-height: 1.8;
+        }
+
+        .about-content p {
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        .highlights {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .highlight-card {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .highlight-card i {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .highlight-card h3 {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Experience Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: var(--primary-color);
+        }
+
+        .timeline-item {
+            background: var(--bg-white);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -2.5rem;
+            top: 2rem;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background: var(--primary-color);
+            border: 3px solid white;
+        }
+
+        .timeline-item h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-item .company {
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-item .date {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .timeline-item ul {
+            list-style-position: inside;
+            color: var(--text-dark);
+        }
+
+        .timeline-item li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Publications */
+        .publications-grid {
+            display: grid;
+            gap: 2rem;
+        }
+
+        .publication-card {
+            background: var(--bg-white);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .publication-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .publication-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .publication-card .venue {
+            color: var(--text-light);
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+
+        .publication-badge {
+            display: inline-block;
+            background: var(--accent-color);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin-top: 0.5rem;
+        }
+
+        /* Projects */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: var(--bg-white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .project-header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 2rem;
+        }
+
+        .project-header i {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .project-content {
+            padding: 2rem;
+        }
+
+        .project-content h3 {
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+        }
+
+        .project-date {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Skills */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category {
+            background: var(--bg-white);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+        }
+
+        .skill-category h3 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+
+        .skill-tag {
+            background: var(--bg-light);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: var(--text-dark);
+            border: 2px solid var(--primary-color);
+        }
+
+        /* Education */
+        .education-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+        }
+
+        .education-card {
+            background: var(--bg-white);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            border-left: 5px solid var(--primary-color);
+        }
+
+        .education-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .education-card .institution {
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .education-card .duration {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .education-card .cgpa {
+            font-weight: 600;
+            color: var(--secondary-color);
+        }
+
+        /* Contact */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .contact-card {
+            background: var(--bg-white);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .contact-card i {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .contact-card h3 {
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
+        }
+
+        .contact-card a {
+            color: var(--primary-color);
+            text-decoration: none;
+            word-break: break-all;
+        }
+
+        .contact-card a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--text-dark);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1.2rem;
+            }
+
+            .nav-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .projects-grid,
+            .education-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Smooth scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">JPS</div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#publications">Publications</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <img src="https://github.com/Jaggu2606.png" alt="Jagannath Prasad Sahoo" class="profile-img">
+            <h1>Jagannath Prasad Sahoo</h1>
+            <p class="subtitle">AI & Robotics Engineer</p>
+            <p class="tagline">Developing intelligent bipedal robots and autonomous systems through cutting-edge AI and reinforcement learning</p>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/jagannath-prasad-sahoo-1b4977b8/" target="_blank" title="LinkedIn">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="https://github.com/Jaggu2606" target="_blank" title="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="mailto:sahoojagannathprasad@gmail.com" title="Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <div class="container">
+        <section id="about">
+            <h2 class="section-title">About Me</h2>
+            <p class="section-subtitle">Passionate researcher bridging classical control and modern AI</p>
+            <div class="about-content">
+                <p>I'm an AI and Robotics Engineer currently pursuing my M.Tech(R) at <strong>IIT Mandi</strong>, specializing in the <strong>Design, Simulation, and Development of Bipedal Robots</strong>. With a strong foundation in mechanical engineering and hands-on experience in robotics, I'm dedicated to pushing the boundaries of autonomous systems and reinforcement learning-based control.</p>
+                
+                <p>My research focuses on developing multi-skill locomotion capabilities for underactuated bipedal robots using advanced reinforcement learning techniques. I'm particularly interested in bridging the gap between classical control theory and modern machine learning approaches to create more robust and adaptive robotic systems.</p>
+                
+                <div class="highlights">
+                    <div class="highlight-card">
+                        <i class="fas fa-robot"></i>
+                        <h3>Research Focus</h3>
+                        <p>Bipedal Robotics & RL Control</p>
+                    </div>
+                    <div class="highlight-card">
+                        <i class="fas fa-graduation-cap"></i>
+                        <h3>Education</h3>
+                        <p>M.Tech(R) @ IIT Mandi</p>
+                    </div>
+                    <div class="highlight-card">
+                        <i class="fas fa-award"></i>
+                        <h3>Achievement</h3>
+                        <p>Best Outgoing Student 2023</p>
+                    </div>
+                    <div class="highlight-card">
+                        <i class="fas fa-file-alt"></i>
+                        <h3>Publications</h3>
+                        <p>6+ Research Papers</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience">
+            <h2 class="section-title">Professional Experience</h2>
+            <p class="section-subtitle">Building expertise across robotics, AI, and mechanical design</p>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h3>Project Associate I</h3>
+                    <p class="company">Indian Institute of Technology, Mandi</p>
+                    <p class="date">January 2025 - Present</p>
+                    <ul>
+                        <li>Working on Autonomous Pipe Inspection systems</li>
+                        <li>Developing AI-powered solutions for industrial applications</li>
+                        <li>Implementing computer vision and robotics algorithms</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <h3>M.Tech(R) Research Scholar</h3>
+                    <p class="company">Indian Institute of Technology, Mandi</p>
+                    <p class="date">March 2024 - December 2026</p>
+                    <ul>
+                        <li>Design, Simulation, and Development of Bipedal Robots</li>
+                        <li>Implementing learning-based control systems using ROS, Gazebo, PyBullet</li>
+                        <li>Developing multi-skill locomotion using reinforcement learning</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <h3>Design Engineer</h3>
+                    <p class="company">Dover India Pvt. Ltd</p>
+                    <p class="date">July 2023 - March 2024</p>
+                    <ul>
+                        <li>Worked on NPD, R&D, Automation, and VAVE projects in Double Diaphragm Pump Sectors</li>
+                        <li>Conducted comprehensive FEA and stress testing analyses</li>
+                        <li>Ensured products meet technical requirements and safety standards</li>
+                        <li>Participated in Design for Manufacturing (DFM) discussions</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <h3>Design Engineering Intern</h3>
+                    <p class="company">Dover India Pvt. Ltd</p>
+                    <p class="date">February 2023 - July 2023</p>
+                    <ul>
+                        <li>Collaborated with cross-functional teams to understand market needs</li>
+                        <li>Conducted engineering analyses including FEA</li>
+                        <li>Engaged in DFM discussions to enhance manufacturability</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <h3>Project Trainee</h3>
+                    <p class="company">Indian Space Research Organization (ISRO)</p>
+                    <p class="date">December 2021 - December 2022</p>
+                    <ul>
+                        <li>Modeling, Design, and Analysis of Vibration Isolation System in Spacecraft</li>
+                        <li>Designed and analyzed Vibration Isolation System (VIS) in six degrees of freedom</li>
+                        <li>Conducted FEA and compared with theoretical calculations</li>
+                        <li>Performed tests across 20-2000 Hz frequency range</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Publications Section -->
+        <section id="publications">
+            <h2 class="section-title">Research Publications</h2>
+            <p class="section-subtitle">Contributing to bipedal robotics and aerospace research</p>
+            <div class="publications-grid">
+                <div class="publication-card">
+                    <h3>Learning Multi-Skill Locomotion in Underactuated Biped: A Waypoint-Based Reward Shaping Approach</h3>
+                    <p class="venue">Eleventh Indian Control Conference (ICC-11)</p>
+                    <span class="publication-badge">2025</span>
+                </div>
+
+                <div class="publication-card">
+                    <h3>Design, Kinematic Modeling, and Stability Verification of a Small-Scale Biped Robot</h3>
+                    <p class="venue">25th International Conference on Control, Automation and Systems (ICCAS 2025)</p>
+                    <span class="publication-badge">2025</span>
+                </div>
+
+                <div class="publication-card">
+                    <h3>From Classical Control to Reinforcement Learning: Trends in Bipedal Robot Locomotion</h3>
+                    <p class="venue">IEEE International Conference on Computing, Communication and Networking Technologies (ICCCNT 2025)</p>
+                    <span class="publication-badge">2025</span>
+                </div>
+
+                <div class="publication-card">
+                    <h3>A Novel Approach for Payload Design to Streamline Deep Space Missions: Molecular Nanoscience</h3>
+                    <p class="venue">73rd International Astronautical Congress (IAC), Paris, France</p>
+                    <span class="publication-badge">2022</span>
+                </div>
+
+                <div class="publication-card">
+                    <h3>Design of Propulsion System for CubeSat: N2O and C2H4 as Green Bipropellant</h3>
+                    <p class="venue">Journal of Aerospace Sciences and Technologies, Vol.74, No.2, pp.126-140</p>
+                    <span class="publication-badge">2022</span>
+                </div>
+
+                <div class="publication-card">
+                    <h3>Analysis and Design of a Propulsion System for an Interplanetary Mission to Venus</h3>
+                    <p class="venue">International Research Journal of Engineering and Technology (IRJET), Volume: 09 Issue: 02</p>
+                    <span class="publication-badge">2022</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects">
+            <h2 class="section-title">Key Projects</h2>
+            <p class="section-subtitle">Innovative solutions in robotics, AI, and aerospace</p>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-header">
+                        <i class="fas fa-robot"></i>
+                        <h3>Bipedal Robot Development</h3>
+                    </div>
+                    <div class="project-content">
+                        <p class="project-date">March 2024 - Present</p>
+                        <p>Designing and simulating bipedal robots using ROS, Gazebo, and PyBullet. Implementing learning-based control systems and developing multi-skill locomotion capabilities using reinforcement learning techniques.</p>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <i class="fas fa-route"></i>
+                        <h3>RL-Based Path Planning</h3>
+                    </div>
+                    <div class="project-content">
+                        <p class="project-date">February 2025 - June 2025</p>
+                        <p>Implementing reinforcement learning-based path planning techniques for mobile robots. Developing obstacle avoidance and navigation algorithms for autonomous systems.</p>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <i class="fas fa-tint"></i>
+                        <h3>Smart Water Monitoring System</h3>
+                    </div>
+                    <div class="project-content">
+                        <p class="project-date">May 2022 - July 2022</p>
+                        <p>Designed and fabricated IoT-based water flow monitoring device at IISc Bangalore. Implemented smart monitoring for water storage tanks with real-time data collection.</p>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <i class="fas fa-plane"></i>
+                        <h3>Aircraft Predictive Maintenance</h3>
+                    </div>
+                    <div class="project-content">
+                        <p class="project-date">March 2022 - July 2022</p>
+                        <p>Developed machine learning tool for remaining useful life (RUL) predictions for turbofan engines. Applied prognostics for predictive maintenance in aviation.</p>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <i class="fas fa-rocket"></i>
+                        <h3>Venus Mission Propulsion</h3>
+                    </div>
+                    <div class="project-content">
+                        <p class="project-date">October 2020</p>
+                        <p>Designed propulsion system for interplanetary mission to Venus at SSERD. Selected efficient propellant (UDMH-N204) for high specific impulse performance.</p>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <i class="fas fa-satellite"></i>
+                        <h3>Spacecraft Vibration Isolation</h3>
+                    </div>
+                    <div class="project-content">
+                        <p class="project-date">December 2021 - December 2022</p>
+                        <p>Modeling, design, and analysis of Vibration Isolation System at ISRO. Conducted FEA and performance tests across 20-2000 Hz frequency range.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills">
+            <h2 class="section-title">Technical Skills</h2>
+            <p class="section-subtitle">Expertise across robotics, AI, and mechanical design</p>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h3><i class="fas fa-robot"></i> Robotics & AI</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">ROS</span>
+                        <span class="skill-tag">Gazebo</span>
+                        <span class="skill-tag">PyBullet</span>
+                        <span class="skill-tag">Isaac Gym</span>
+                        <span class="skill-tag">Reinforcement Learning</span>
+                        <span class="skill-tag">Control Systems</span>
+                        <span class="skill-tag">Aerial Robotics</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3><i class="fas fa-code"></i> Programming</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">C Programming</span>
+                        <span class="skill-tag">MATLAB</span>
+                        <span class="skill-tag">SQL</span>
+                        <span class="skill-tag">SIMULINK</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3><i class="fas fa-drafting-compass"></i> CAD & Analysis</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">UG NX</span>
+                        <span class="skill-tag">SolidWorks</span>
+                        <span class="skill-tag">ANSYS</span>
+                        <span class="skill-tag">NASTRAN</span>
+                        <span class="skill-tag">FEA</span>
+                        <span class="skill-tag">DFMEA</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3><i class="fas fa-cogs"></i> Engineering</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Manufacturing Technology</span>
+                        <span class="skill-tag">Material Science</span>
+                        <span class="skill-tag">Project Management</span>
+                        <span class="skill-tag">R&D</span>
+                        <span class="skill-tag">Technical Documentation</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section id="education">
+            <h2 class="section-title">Education</h2>
+            <p class="section-subtitle">Academic excellence in engineering and robotics</p>
+            <div class="education-grid">
+                <div class="education-card">
+                    <h3>M.Tech(R) in AI & Robotics</h3>
+                    <p class="institution">Indian Institute of Technology, Mandi</p>
+                    <p class="duration">March 2024 - December 2026</p>
+                    <p class="cgpa">CGPA: 8.57/10</p>
+                    <p>Focus: Design, Simulation, and Development of Bipedal Robots</p>
+                </div>
+
+                <div class="education-card">
+                    <h3>B.E. in Mechanical Engineering</h3>
+                    <p class="institution">Ramaiah Institute of Technology, Bengaluru</p>
+                    <p class="duration">August 2019 - June 2023</p>
+                    <p class="cgpa">CGPA: 8.90/10</p>
+                    <p><strong>🏆 Best Outgoing Student Award (2019-2023)</strong></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact">
+            <h2 class="section-title">Get In Touch</h2>
+            <p class="section-subtitle">Let's collaborate on robotics and AI projects</p>
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <i class="fas fa-envelope"></i>
+                    <h3>Email</h3>
+                    <a href="mailto:sahoojagannathprasad@gmail.com">sahoojagannathprasad@gmail.com</a>
+                </div>
+
+                <div class="contact-card">
+                    <i class="fab fa-linkedin"></i>
+                    <h3>LinkedIn</h3>
+                    <a href="https://www.linkedin.com/in/jagannath-prasad-sahoo-1b4977b8/" target="_blank">Connect with me</a>
+                </div>
+
+                <div class="contact-card">
+                    <i class="fab fa-github"></i>
+                    <h3>GitHub</h3>
+                    <a href="https://github.com/Jaggu2606" target="_blank">@Jaggu2606</a>
+                </div>
+
+                <div class="contact-card">
+                    <i class="fas fa-phone"></i>
+                    <h3>Phone</h3>
+                    <a href="tel:+917665621095">+91-7665621095</a>
+                </div>
+
+                <div class="contact-card">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3>Location</h3>
+                    <p>IIT Mandi, Kamand<br>Himachal Pradesh, India</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Jagannath Prasad Sahoo. All rights reserved.</p>
+        <p style="margin-top: 0.5rem; font-size: 0.9rem;">Bridging Classical Control and Modern AI in Robotics</p>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add active state to navigation on scroll
+        window.addEventListener('scroll', () => {
+            let current = '';
+            const sections = document.querySelectorAll('section');
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').slice(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Add animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cards and timeline items
+        document.querySelectorAll('.project-card, .publication-card, .timeline-item, .education-card, .contact-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>

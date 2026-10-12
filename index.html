@@ -8,6 +8,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <script>
+    /* Apply the reader's saved theme before first paint */
+    try { var t = localStorage.getItem("theme"); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
+  </script>
   <link rel="stylesheet" href="styles.css">
   <link rel="preload" as="image" href="media/profile.jpg">
 </head>
@@ -31,6 +35,13 @@
         <a href="#publications">Publications</a>
         <a href="#awards">Awards</a>
       </nav>
+      <div class="theme-picker" role="group" aria-label="Background colour">
+        <button type="button" data-theme-choice="navy" style="--swatch:#0f1724" title="Navy" aria-label="Navy background"></button>
+        <button type="button" data-theme-choice="charcoal" style="--swatch:#171717" title="Charcoal" aria-label="Charcoal background"></button>
+        <button type="button" data-theme-choice="plum" style="--swatch:#2a1b3d" title="Plum" aria-label="Plum background"></button>
+        <button type="button" data-theme-choice="sand" style="--swatch:#efe4cf" title="Sand" aria-label="Sand background"></button>
+        <button type="button" data-theme-choice="light" style="--swatch:#ffffff" title="Light" aria-label="Light background"></button>
+      </div>
     </div>
   </header>
 
@@ -138,6 +149,7 @@
         <figure><img src="media/biped_gen1_photo.jpg" alt="First-generation biped robot" loading="lazy" decoding="async"><figcaption>1st-generation biped, designed and built at IIT Mandi</figcaption></figure>
         <figure><img src="media/biped_gen2_lab.jpg" alt="Second-generation 12-DOF biped in the lab" loading="lazy" decoding="async"><figcaption>2nd-generation 12-DOF biped in the lab</figcaption></figure>
         <figure><img src="media/biped_gen2_photo.jpg" alt="Second-generation biped during gantry-supported walking tests" loading="lazy" decoding="async"><figcaption>Gantry-supported walking trials</figcaption></figure>
+        <figure><img src="media/uav_setup.jpg" alt="UAV and AGV tracking setup outside the IIT Mandi building" loading="lazy" decoding="async"><figcaption>UAV–AGV tracking experiments</figcaption></figure>
       </div>
     </section>
 
@@ -216,6 +228,30 @@
         </div>
       </article>
 
+      <!-- UAV–AGV tracking -->
+      <article class="card project-card">
+        <div class="project-media">
+          <video autoplay loop muted playsinline preload="metadata" poster="media/uav_tracking.jpg">
+            <source src="media/uav_tracking.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="project-figure">
+          <img src="media/uav_reward.jpg" alt="Reward convergence of DQN, SAC, TQC, TD3 and TD7" loading="lazy" decoding="async">
+        </div>
+        <div class="project-body">
+          <h4>Deep RL for Vision-Based UAV Tracking by an Autonomous Ground Vehicle</h4>
+          <p class="project-date">Jan 2026 – Aug 2026 · Centre for AI & Robotics, IIT Mandi</p>
+          <p>
+            Persistent tracking of a <strong>DJI Matrice 600 UAV</strong> by a ground vehicle (Diadem AGV) using deep reinforcement learning, with body-frame velocity commands as actions. A <strong>YOLOv8n</strong> detector, trained on a custom dataset of 5,000 annotated frames, runs in real time on an upward-facing camera. The centroid of the detected bounding box gives the planar tracking error on the image plane.
+          </p>
+          <p>
+            A composite reward adds a bounded exponential proximity kernel, a <strong>potential-based progress term</strong> that is guaranteed not to change the optimal policy, and an action-smoothness penalty. Five algorithms (<strong>DQN, TD3, SAC, TQC and TD7</strong>) were benchmarked on circular and square trajectories. TD7 reached the lowest steady-state error and converged fastest, and an ablation showed that the reward shaping speeds up convergence for every algorithm.
+          </p>
+          <p><a href="https://microgridx.github.io/UAV-AGV_Collaboration_website/" target="_blank" rel="noopener">Website →</a></p>
+          <ul class="tags"><li>Deep RL</li><li>YOLOv8</li><li>UAV–AGV teams</li><li>Visual servoing</li><li>Reward shaping</li></ul>
+        </div>
+      </article>
+
       <!-- Text-only cards (no media yet) -->
       <div class="grid">
         <article class="card">
@@ -223,12 +259,6 @@
           <p class="project-date">Jan 2025 – Jun 2026</p>
           <p>A ground robot that follows buried power cables using <strong>electromagnetic locator feedback</strong>, with goal-free obstacle avoidance and <strong>GPS mapping</strong> of the cable route. It is related to an autonomous, vision-based pipe inspection system I led as Project Associate.</p>
           <ul class="tags"><li>Field robotics</li><li>Sensor fusion</li><li>GPS mapping</li></ul>
-        </article>
-        <article class="card">
-          <h4>Deep RL for Vision-Based UAV Tracking by a Ground Vehicle</h4>
-          <p class="project-date">Jan 2026 – Aug 2026</p>
-          <p>A <strong>vision-driven tracking policy</strong> for a heterogeneous UAV–UGV team. The ground vehicle learns with deep RL to keep an aerial partner in view and follow it using onboard camera observations.</p>
-          <ul class="tags"><li>Deep RL</li><li>Computer vision</li><li>UAV–UGV teams</li></ul>
         </article>
       </div>
 
@@ -313,7 +343,7 @@
       <div class="timeline">
         <article class="exp">
           <div class="exp-logo" data-initials="IIT">
-            <img src="media/iit_mandi.png" alt="IIT Mandi logo" loading="lazy" onerror="this.remove()">
+            <img src="media/logo_iit_mandi.png" alt="IIT Mandi logo" loading="lazy">
           </div>
           <div class="exp-body">
             <div class="exp-head"><h4>Project Associate I</h4><span class="exp-date">Jan 2025 – Jul 2026</span></div>
@@ -326,7 +356,7 @@
         </article>
         <article class="exp">
           <div class="exp-logo" data-initials="IIT">
-            <img src="media/iit_mandi.png" alt="IIT Mandi logo" loading="lazy" onerror="this.remove()">
+            <img src="media/logo_iit_mandi.png" alt="IIT Mandi logo" loading="lazy">
           </div>
           <div class="exp-body">
             <div class="exp-head"><h4>Teaching Assistant</h4><span class="exp-date">Jan 2026 – Jul 2026</span></div>
@@ -339,7 +369,7 @@
         </article>
         <article class="exp">
           <div class="exp-logo" data-initials="DOVER">
-            <img src="media/dover.png" alt="Dover logo" loading="lazy" onerror="this.remove()">
+            <img src="media/logo_dover.png" alt="Dover logo" loading="lazy">
           </div>
           <div class="exp-body">
             <div class="exp-head"><h4>Design Engineer</h4><span class="exp-date">Jul 2023 – Mar 2024</span></div>
@@ -352,7 +382,7 @@
         </article>
         <article class="exp">
           <div class="exp-logo" data-initials="ISRO">
-            <img src="media/isro.png" alt="ISRO logo" loading="lazy" onerror="this.remove()">
+            <img src="media/logo_isro.png" alt="ISRO logo" loading="lazy">
           </div>
           <div class="exp-body">
             <div class="exp-head"><h4>Project Trainee</h4><span class="exp-date">Dec 2021 – Dec 2022</span></div>
@@ -370,7 +400,8 @@
     <section class="wrap" id="education">
       <h3>Education</h3>
       <div class="timeline">
-        <article class="exp exp--nologo">
+        <article class="exp">
+          <div class="exp-logo" data-initials="IIT"><img src="media/logo_iit_mandi.png" alt="IIT Mandi logo" loading="lazy"></div>
           <div class="exp-body">
             <div class="exp-head"><h4>M.Tech (Research), AI and Robotics</h4><span class="exp-date">Mar 2024 – Sep 2026</span></div>
             <p class="exp-org"><a href="https://www.iitmandi.ac.in" target="_blank" rel="noopener">Indian Institute of Technology (IIT) Mandi</a> · Supervisor: Dr. Amit Shukla · CGPA 8.57/10</p>
@@ -380,7 +411,8 @@
             </ul>
           </div>
         </article>
-        <article class="exp exp--nologo">
+        <article class="exp">
+          <div class="exp-logo" data-initials="RIT"><img src="media/logo_ramaiah.png" alt="Ramaiah Institute of Technology logo" loading="lazy"></div>
           <div class="exp-body">
             <div class="exp-head"><h4>B.E., Mechanical Engineering</h4><span class="exp-date">Aug 2019 – Jun 2023</span></div>
             <p class="exp-org"><a href="https://www.msrit.edu" target="_blank" rel="noopener">Ramaiah Institute of Technology, Bengaluru</a> · CGPA 8.90/10</p>
@@ -423,6 +455,27 @@
   <footer class="site-footer">
     <p>© <span id="year">2026</span> Jagannath Prasad Sahoo · <a href="mailto:sahoojagannathprasad@gmail.com">sahoojagannathprasad@gmail.com</a></p>
   </footer>
-  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Background colour picker
+    (function () {
+      var root = document.documentElement;
+      var buttons = document.querySelectorAll("[data-theme-choice]");
+      function mark() {
+        var current = root.dataset.theme || "navy";
+        buttons.forEach(function (b) { b.setAttribute("aria-pressed", b.dataset.themeChoice === current); });
+      }
+      buttons.forEach(function (b) {
+        b.addEventListener("click", function () {
+          var t = b.dataset.themeChoice;
+          if (t === "navy") delete root.dataset.theme; else root.dataset.theme = t;
+          try { localStorage.setItem("theme", t); } catch (e) {}
+          mark();
+        });
+      });
+      mark();
+    })();
+  </script>
 </body>
 </html>

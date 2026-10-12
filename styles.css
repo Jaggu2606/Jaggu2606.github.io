@@ -297,6 +297,23 @@ ul{list-style-type:disc;margin-left:20px;padding-left:0}
 .awards{margin-top:16px}
 .awards li{margin-bottom:8px;color:var(--text-soft)}
 
+/* ---------- Gallery ---------- */
+.gallery-wrap{position:relative;margin-top:20px}
+.gallery-scroller{
+  display:flex;gap:14px;overflow-x:auto;padding-bottom:14px;
+  scroll-snap-type:x mandatory;scrollbar-width:thin;
+  scrollbar-color:rgba(var(--accent-rgb),0.45) rgba(var(--fg-rgb),0.05);
+}
+.gallery-scroller figure{flex:0 0 auto;margin:0;scroll-snap-align:start;width:min-content;min-width:170px}
+.gallery-scroller img{height:280px;width:auto;border-radius:10px;display:block;transition:transform .2s ease, filter .2s ease}
+.gallery-scroller figure:hover img{transform:translateY(-3px);filter:brightness(1.06)}
+.gallery-scroller figcaption{font-size:.88rem;color:var(--muted);margin-top:8px}
+.gallery-wrap::after{
+  content:"";position:absolute;top:0;right:0;bottom:14px;width:60px;pointer-events:none;
+  background:linear-gradient(90deg, transparent, var(--bg-deep));
+}
+.gallery-hint{color:var(--muted);font-size:.85rem;margin:6px 0 0}
+
 /* ---------- Alternating section tint ---------- */
 .section-alt{position:relative}
 .section-alt::before{
@@ -334,5 +351,6 @@ ul{list-style-type:disc;margin-left:20px;padding-left:0}
   .card{padding:14px}
   .small-projects-grid{grid-template-columns:1fr}
   .grid{grid-template-columns:1fr}
+  .gallery-scroller img{height:220px}
   p,li,a{overflow-wrap:anywhere}
 }

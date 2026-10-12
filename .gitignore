@@ -6,3 +6,6 @@ Generation 2/
 *.MP4
 IMG_*.jpg
 !media/*.mp4
+WhatsApp*
+*.jpeg
+!media/*

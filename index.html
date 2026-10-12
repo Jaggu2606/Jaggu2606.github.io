@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <link rel="preload" as="image" href="media/profile.jpg">
 </head>
 <body>
   <!-- Reusable icons -->
@@ -53,9 +54,8 @@
           <a href="https://scholar.google.com/citations?user=YOUR_ID" target="_blank" rel="noopener" title="Google Scholar" aria-label="Google Scholar"><svg><use href="#i-scholar"/></svg></a> -->
         </p>
       </div>
-      <!-- Drop a photo at media/profile.jpg — the initials show until then -->
       <div class="profile-pic" data-initials="JPS">
-        <img src="media/profile.jpg" alt="Jagannath Prasad Sahoo" fetchpriority="high" onerror="this.remove()">
+        <img src="media/profile.jpg" alt="Jagannath Prasad Sahoo" fetchpriority="high">
       </div>
     </section>
 
@@ -134,27 +134,51 @@
         </ol>
       </details>
 
-      <!-- Optional photo strip: add images to media/ and uncomment
       <div class="news-figs">
-        <figure><img src="media/icc.jpg" alt="Presenting at ICC-11" loading="lazy"><figcaption>Presenting at ICC-11, 2025</figcaption></figure>
-        <figure><img src="media/iccas.jpg" alt="ICCAS 2025, Korea" loading="lazy"><figcaption>ICCAS 2025, Korea</figcaption></figure>
-      </div> -->
+        <figure><img src="media/biped_gen1_photo.jpg" alt="First-generation biped robot" loading="lazy" decoding="async"><figcaption>1st-generation biped, designed and built at IIT Mandi</figcaption></figure>
+        <figure><img src="media/biped_gen2_lab.jpg" alt="Second-generation 12-DOF biped in the lab" loading="lazy" decoding="async"><figcaption>2nd-generation 12-DOF biped in the lab</figcaption></figure>
+        <figure><img src="media/biped_gen2_photo.jpg" alt="Second-generation biped during gantry-supported walking tests" loading="lazy" decoding="async"><figcaption>Gantry-supported walking trials</figcaption></figure>
+      </div>
     </section>
 
     <!-- ================= Robotics projects ================= -->
-    <!-- Each media slot shows a placeholder until the referenced file exists in media/.
-         Use .webm/.mp4 inside <video> for clips, or swap in an <img>. -->
     <section class="wrap" id="projects">
       <h3>Robotics Projects</h3>
 
+      <!-- 2nd-generation biped -->
       <article class="card project-card">
-        <div class="project-media" data-label="Biped walking / running clip">
-          <video autoplay loop muted playsinline onerror="this.parentElement.classList.add('empty')">
-            <source src="media/biped.webm" type="video/webm" onerror="this.parentElement.parentElement.classList.add('empty')">
+        <div class="project-media">
+          <video autoplay loop muted playsinline preload="metadata" poster="media/biped_gen2_walk.jpg">
+            <source src="media/biped_gen2_walk.mp4" type="video/mp4">
           </video>
         </div>
-        <div class="project-figure" data-label="Biped CAD / control diagram">
-          <img src="media/biped_diagram.png" alt="Biped robot design and control architecture" loading="lazy" onerror="this.parentElement.classList.add('empty')">
+        <div class="project-figure">
+          <video autoplay loop muted playsinline preload="metadata" poster="media/gen2_stairs.jpg">
+            <source src="media/gen2_stairs.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="project-body">
+          <h4>Terrain-Adaptive Locomotion for a 12-DOF Biped with Shared Autonomy</h4>
+          <p class="project-date">2nd-generation biped · IIT Mandi</p>
+          <p>
+            Industrial inspection sites such as manufacturing floors, power plants and refineries have ramps, grated flooring and irregular ground, and people work close by. Most humanoid locomotion work is validated on idealized flat surfaces. This project builds a <strong>12-DOF biped</strong>, based on the <strong>Berkeley Humanoid Lite</strong> URDF, that is meant for those environments.
+          </p>
+          <p>
+            A reinforcement learning architecture with <strong>structured terrain encoding</strong> gives stable walking on flat ground, stair ascent and descent, and uneven terrain. Policies are trained in physics simulation with <strong>domain randomization</strong> for sim-to-real transfer. A low-level <strong>safety control loop</strong> enforces stability margins and joint-level compliance, so the robot stays predictable and interruptible around human inspectors. The hardware work included custom BLDC actuator control and PID tuning, a range-of-motion study against human joint limits, and gantry-supported sim-to-real trials.
+          </p>
+          <ul class="tags"><li>Humanoid locomotion</li><li>Terrain-aware RL</li><li>Shared autonomy</li><li>Domain randomization</li><li>BLDC actuators</li></ul>
+        </div>
+      </article>
+
+      <!-- 1st-generation biped -->
+      <article class="card project-card">
+        <div class="project-media">
+          <video autoplay loop muted playsinline preload="metadata" poster="media/biped_gen1_walk.jpg">
+            <source src="media/biped_gen1_walk.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="project-figure">
+          <img src="media/biped_gen1_cad.jpg" alt="CAD model of the first-generation biped with dimensions and joint layout" loading="lazy" decoding="async">
         </div>
         <div class="project-body">
           <h4>Multi-Skill Bipedal Robot with Learning-Based Control</h4>
@@ -169,80 +193,70 @@
         </div>
       </article>
 
+      <!-- HRL obstacle avoidance -->
       <article class="card project-card">
-        <div class="project-media" data-label="Obstacle-aware walking clip">
-          <video autoplay loop muted playsinline>
-            <source src="media/hrl_biped.webm" type="video/webm" onerror="this.parentElement.parentElement.classList.add('empty')">
+        <div class="project-media">
+          <video autoplay loop muted playsinline preload="metadata" poster="media/hrl_hardware.jpg">
+            <source src="media/hrl_hardware.mp4" type="video/mp4">
           </video>
         </div>
-        <div class="project-figure" data-label="Hierarchical policy diagram">
-          <img src="media/hrl_diagram.png" alt="Hierarchical RL architecture" loading="lazy" onerror="this.parentElement.classList.add('empty')">
+        <div class="project-figure">
+          <img src="media/hrl_metrics.jpg" alt="Success rate, path efficiency, failure modes and energy efficiency across obstacle densities" loading="lazy" decoding="async">
         </div>
         <div class="project-body">
           <h4>Hierarchical RL for Collision-Free Locomotion of an Underactuated Biped</h4>
           <p class="project-date">Feb 2026 – Jul 2026</p>
           <p>
-            A two-level control architecture for obstacle-aware bipedal locomotion. A <strong>high-level waypoint policy</strong> reasons about the environment and proposes intermediate goals, and a <strong>low-level gait policy</strong> turns them into stable footsteps. Splitting navigation from gait generation lets an underactuated biped move through cluttered scenes without collisions.
+            A two-level control architecture for obstacle-aware bipedal locomotion. A <strong>high-level waypoint policy</strong> plans a path through the obstacles, and a <strong>low-level gait policy</strong> turns it into stable footsteps. The policy was trained in PyBullet with up to 20 obstacles, then deployed on the 1st-generation biped.
           </p>
-          <ul class="tags"><li>Hierarchical RL</li><li>Navigation</li><li>Gait control</li></ul>
+          <p>
+            In simulation it reaches <strong>98% success</strong> with path efficiency (SPL) of 0.955. On hardware it keeps <strong>92% success</strong> and SPL 0.884, a sim-to-real gap of about 6–7%.
+          </p>
+          <ul class="tags"><li>Hierarchical RL</li><li>Path planning</li><li>Obstacle avoidance</li><li>PyBullet</li><li>Sim-to-real</li></ul>
         </div>
       </article>
 
-      <article class="card project-card">
-        <div class="project-media" data-label="Field robot tracing a cable">
-          <img src="media/cable_tracing.jpg" alt="Autonomous buried cable tracing robot" loading="lazy" onerror="this.parentElement.classList.add('empty')">
-        </div>
-        <div class="project-figure" data-label="GPS map of traced cable route">
-          <img src="media/cable_map.png" alt="GPS map of buried cable route" loading="lazy" onerror="this.parentElement.classList.add('empty')">
-        </div>
-        <div class="project-body">
-          <h4>Autonomous Buried Power Cable Tracing Using Electromagnetic Locator Feedback</h4>
+      <!-- Text-only cards (no media yet) -->
+      <div class="grid">
+        <article class="card">
+          <h4>Autonomous Buried Power Cable Tracing</h4>
           <p class="project-date">Jan 2025 – Jun 2026</p>
-          <p>
-            A ground robot that follows <strong>buried power cables</strong> using feedback from an electromagnetic locator. It has no predefined goal and steers to keep the signal strong, with <strong>goal-free obstacle avoidance</strong> along the way. It also builds a <strong>GPS map</strong> of the cable route as it drives. The work runs alongside an <strong>autonomous pipe inspection system</strong> that uses computer vision for real-time navigation and defect detection.
-          </p>
-          <ul class="tags"><li>Field robotics</li><li>Sensor fusion</li><li>Obstacle avoidance</li><li>GPS mapping</li></ul>
-        </div>
-      </article>
-
-      <article class="card project-card">
-        <div class="project-media" data-label="UGV tracking a UAV">
-          <video autoplay loop muted playsinline>
-            <source src="media/uav_tracking.webm" type="video/webm" onerror="this.parentElement.parentElement.classList.add('empty')">
-          </video>
-        </div>
-        <div class="project-figure" data-label="Vision-based policy pipeline">
-          <img src="media/uav_pipeline.png" alt="Vision-based tracking policy" loading="lazy" onerror="this.parentElement.classList.add('empty')">
-        </div>
-        <div class="project-body">
-          <h4>Deep RL for Vision-Based UAV Tracking by an Autonomous Ground Vehicle</h4>
+          <p>A ground robot that follows buried power cables using <strong>electromagnetic locator feedback</strong>, with goal-free obstacle avoidance and <strong>GPS mapping</strong> of the cable route. It is related to an autonomous, vision-based pipe inspection system I led as Project Associate.</p>
+          <ul class="tags"><li>Field robotics</li><li>Sensor fusion</li><li>GPS mapping</li></ul>
+        </article>
+        <article class="card">
+          <h4>Deep RL for Vision-Based UAV Tracking by a Ground Vehicle</h4>
           <p class="project-date">Jan 2026 – Aug 2026</p>
-          <p>
-            A <strong>vision-driven tracking policy</strong> for a heterogeneous <strong>UAV–UGV team</strong>, in which the ground vehicle learns with deep reinforcement learning to keep an aerial partner in view and follow it using onboard camera observations.
-          </p>
+          <p>A <strong>vision-driven tracking policy</strong> for a heterogeneous UAV–UGV team. The ground vehicle learns with deep RL to keep an aerial partner in view and follow it using onboard camera observations.</p>
           <ul class="tags"><li>Deep RL</li><li>Computer vision</li><li>UAV–UGV teams</li></ul>
-        </div>
-      </article>
+        </article>
+      </div>
 
       <!-- Smaller projects -->
       <div class="small-projects-grid">
         <article class="card mini-card">
-          <div class="mini-media" data-label="MPPF"><img src="media/mppf.png" alt="Mobile probe potential field navigation" loading="lazy" onerror="this.parentElement.classList.add('empty')"></div>
-          <h5>MPPF: Mobile Probe Potential Field</h5>
-          <p>Probe-based potential field planner for real-time multi-agent navigation in industrial environments.</p>
+          <video autoplay loop muted playsinline preload="metadata" poster="media/actuator.jpg">
+            <source src="media/actuator.mp4" type="video/mp4">
+          </video>
+          <h5>BLDC Actuator Control & Tuning</h5>
+          <p>Characterization and PID tuning of the BLDC joint actuators that drive the 2nd-generation biped.</p>
         </article>
         <article class="card mini-card">
-          <div class="mini-media" data-label="Teleoperation"><img src="media/teleop.png" alt="Model-mediated teleoperation" loading="lazy" onerror="this.parentElement.classList.add('empty')"></div>
+          <video autoplay loop muted playsinline preload="metadata" poster="media/hrl_sim.jpg">
+            <source src="media/hrl_sim.mp4" type="video/mp4">
+          </video>
+          <h5>Biped Navigation in PyBullet</h5>
+          <p>Waypoint-following and obstacle avoidance in cluttered simulated environments with 5–20 obstacles.</p>
+        </article>
+        <article class="card mini-card">
+          <h5>MPPF: Mobile Probe Potential Field</h5>
+          <p>Probe-based potential field planner for real-time multi-agent navigation in industrial environments.</p>
           <h5>Model-Mediated Teleoperation</h5>
           <p>Teleoperation of a force-blind, low-cost manipulator using a hardware model and a single-scalar contact sensor.</p>
         </article>
         <article class="card mini-card">
-          <div class="mini-media" data-label="Smart water"><img src="media/water.png" alt="Smart water monitoring" loading="lazy" onerror="this.parentElement.classList.add('empty')"></div>
           <h5>Smart Water Monitoring, IISc</h5>
           <p>IoT-based flow monitoring with anomaly detection, deployed at 98% accuracy.</p>
-        </article>
-        <article class="card mini-card">
-          <div class="mini-media" data-label="Turbofan RUL"><img src="media/turbofan.png" alt="Turbofan remaining useful life prediction" loading="lazy" onerror="this.parentElement.classList.add('empty')"></div>
           <h5>Turbofan Predictive Maintenance</h5>
           <p>Ensemble ML models for remaining-useful-life prediction of aircraft engines at 92% accuracy.</p>
         </article>
@@ -251,24 +265,22 @@
 
     <!-- ================= Mechanical / aerospace ================= -->
     <section class="wrap section-alt" id="hardware-projects">
-      <h3>Mechanical & Aerospace Engineering</h3>
+      <h3>Projects in Mechanical & Aerospace Engineering</h3>
       <div class="grid">
         <article class="card hw-card">
-          <div class="hw-media" data-label="Isolation system"><img src="media/vis.png" alt="Spacecraft vibration isolation system" loading="lazy" onerror="this.parentElement.classList.add('empty')"></div>
-          <div>
-            <h4>6-DOF Vibration Isolation System for Spacecraft — ISRO</h4>
-            <p>Designed and analyzed a six degree-of-freedom vibration isolation system. Validated natural frequencies against analytical models and ran vibration testing from 20 to 2000 Hz.</p>
-          </div>
-        </article>
-        <article class="card hw-card">
-          <div class="hw-media" data-label="Pump systems"><img src="media/pump.png" alt="Double diaphragm pump" loading="lazy" onerror="this.parentElement.classList.add('empty')"></div>
+          <img src="media/dover.jpg" alt="At Dover India" loading="lazy" decoding="async">
           <div>
             <h4>Double Diaphragm Pump Development — Dover India</h4>
             <p>New product development, R&D and automation for double diaphragm pump systems. FEA and stress testing, plus a <strong>15% cost reduction</strong> through VAVE, design optimization and DFM.</p>
           </div>
         </article>
         <article class="card hw-card">
-          <div class="hw-media" data-label="Rocketry"><img src="media/rocketry.jpg" alt="STARDUST RIT Rocketry" loading="lazy" onerror="this.parentElement.classList.add('empty')"></div>
+          <div>
+            <h4>6-DOF Vibration Isolation System for Spacecraft — ISRO</h4>
+            <p>Designed and analyzed a six degree-of-freedom vibration isolation system. Validated natural frequencies against analytical models and ran vibration testing from 20 to 2000 Hz.</p>
+          </div>
+        </article>
+        <article class="card hw-card">
           <div>
             <h4>STARDUST RIT Rocketry & Spacecraft Propulsion</h4>
             <p>Student coordinator for Aerodynamics and Structures (2020–2022). Designed a green bipropellant (N<sub>2</sub>O/C<sub>2</sub>H<sub>4</sub>) propulsion system for CubeSats and a propulsion system for an interplanetary mission to Venus.</p>

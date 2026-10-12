@@ -453,18 +453,40 @@
     </section>
 
     <!-- ================= Gallery ================= -->
+    <!-- To add a photo: copy one <figure>, set data-cat to "events" or "robots",
+         and point src at a file in media/. Clicking a tile opens it full size. -->
     <section class="wrap section-alt" id="gallery">
       <h3>Gallery</h3>
-      <div class="gallery-wrap">
-        <div class="gallery-scroller">
-          <figure><img src="media/gal_khatib.jpg" alt="Jagannath presenting a framed painting to Prof. Oussama Khatib" loading="lazy" decoding="async"><figcaption>With Prof. Oussama Khatib</figcaption></figure>
-          <figure><img src="media/gal_defence.jpg" alt="Jagannath presenting during his thesis defence" loading="lazy" decoding="async"><figcaption>M.Tech (Research) thesis defence, IIT Mandi</figcaption></figure>
-          <figure><img src="media/gal_icc.jpg" alt="Jagannath at the Indian Control Conference" loading="lazy" decoding="async"><figcaption>Paper presentation at the Indian Control Conference (ICC)</figcaption></figure>
-          <figure><img src="media/gal_hive.jpg" alt="Jagannath with his poster at HIVE" loading="lazy" decoding="async"><figcaption>Poster presentation at HIVE</figcaption></figure>
-          <figure><img src="media/gal_dronelab.jpg" alt="Group photo at the Drone Lab, Centre for AI and Robotics, IIT Mandi" loading="lazy" decoding="async"><figcaption>Drone Lab, Centre for AI & Robotics, IIT Mandi</figcaption></figure>
-        </div>
+      <div class="gallery-filters" role="group" aria-label="Filter gallery">
+        <button type="button" data-filter="all" aria-pressed="true">All</button>
+        <button type="button" data-filter="events" aria-pressed="false">Events & talks</button>
+        <button type="button" data-filter="robots" aria-pressed="false">Robots & lab</button>
       </div>
-      <p class="gallery-hint">Scroll sideways for more →</p>
+      <div class="gallery-grid">
+        <figure data-cat="events"><img src="media/gal_khatib.jpg" alt="Jagannath presenting a framed painting to Prof. Oussama Khatib" loading="lazy" decoding="async"><figcaption>With Prof. Oussama Khatib</figcaption></figure>
+        <figure data-cat="events" class="wide"><img src="media/gal_defence.jpg" alt="Thesis defence presentation in the seminar room" loading="lazy" decoding="async"><figcaption>M.Tech (Research) thesis defence, IIT Mandi</figcaption></figure>
+        <figure data-cat="events"><img src="media/gal_icc.jpg" alt="Jagannath at the Indian Control Conference standee" loading="lazy" decoding="async"><figcaption>Paper presentation at the Indian Control Conference (ICC)</figcaption></figure>
+        <figure data-cat="events"><img src="media/gal_hive.jpg" alt="Jagannath with his poster at HIVE" loading="lazy" decoding="async"><figcaption>Poster presentation at HIVE</figcaption></figure>
+        <figure data-cat="robots" class="wide"><video autoplay loop muted playsinline preload="metadata" poster="media/gal_isaac.jpg"><source src="media/gal_isaac.mp4" type="video/mp4"></video><figcaption>Training the 2nd-generation biped with massively parallel RL in Isaac Gym</figcaption></figure>
+        <figure data-cat="events" class="wide"><img src="media/gal_dronelab.jpg" alt="Group photo at the Drone Lab, Centre for AI and Robotics, IIT Mandi" loading="lazy" decoding="async"><figcaption>Drone Lab, Centre for AI & Robotics, IIT Mandi</figcaption></figure>
+        <figure data-cat="robots"><img src="media/biped_gen1_photo.jpg" alt="First-generation biped robot" loading="lazy" decoding="async"><figcaption>1st-generation biped, designed and built at IIT Mandi</figcaption></figure>
+        <figure data-cat="events"><img src="media/gal_defence2.jpg" alt="Thesis defence, presenting results" loading="lazy" decoding="async"><figcaption>Thesis defence: presenting the results</figcaption></figure>
+        <figure data-cat="robots"><img src="media/biped_gen2_lab.jpg" alt="Second-generation 12-DOF biped in the lab" loading="lazy" decoding="async"><figcaption>2nd-generation 12-DOF biped in the lab</figcaption></figure>
+        <figure data-cat="robots"><img src="media/biped_gen2_photo.jpg" alt="Second-generation biped during gantry-supported walking trials" loading="lazy" decoding="async"><figcaption>Gantry-supported walking trials</figcaption></figure>
+        <figure data-cat="events"><img src="media/gal_defence3.jpg" alt="Thesis defence, discussion with the committee" loading="lazy" decoding="async"><figcaption>Thesis defence</figcaption></figure>
+        <figure data-cat="robots"><img src="media/uav_setup.jpg" alt="UAV and AGV tracking setup outside the IIT Mandi building" loading="lazy" decoding="async"><figcaption>UAV–AGV tracking experiments</figcaption></figure>
+        <figure data-cat="events"><img src="media/gal_defence4.jpg" alt="Thesis defence in the seminar room" loading="lazy" decoding="async"><figcaption>Thesis defence</figcaption></figure>
+        <figure data-cat="robots"><img src="media/biped_gen1_cad.jpg" alt="CAD model of the first-generation biped" loading="lazy" decoding="async"><figcaption>CAD design of the 1st-generation biped</figcaption></figure>
+        <figure data-cat="events" class="wide"><img src="media/dover.jpg" alt="At Dover India" loading="lazy" decoding="async"><figcaption>Design Engineer at Dover India</figcaption></figure>
+      </div>
+
+      <dialog class="lightbox" aria-label="Gallery viewer">
+        <button type="button" class="lb-close" aria-label="Close">×</button>
+        <button type="button" class="lb-prev" aria-label="Previous">‹</button>
+        <div class="lb-media"></div>
+        <button type="button" class="lb-next" aria-label="Next">›</button>
+        <p class="lb-caption"></p>
+      </dialog>
     </section>
 
   </main>
@@ -492,6 +514,62 @@
         });
       });
       mark();
+    })();
+
+    // Gallery: category filter + lightbox
+    (function () {
+      var grid = document.querySelector(".gallery-grid");
+      if (!grid) return;
+      var items = Array.prototype.slice.call(grid.querySelectorAll("figure"));
+      var filters = document.querySelectorAll(".gallery-filters button");
+      filters.forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          var f = btn.dataset.filter;
+          filters.forEach(function (b) { b.setAttribute("aria-pressed", b === btn); });
+          items.forEach(function (it) { it.hidden = f !== "all" && it.dataset.cat !== f; });
+        });
+      });
+
+      var box = document.querySelector(".lightbox");
+      var media = box.querySelector(".lb-media");
+      var caption = box.querySelector(".lb-caption");
+      var current = 0;
+      function visible() { return items.filter(function (it) { return !it.hidden; }); }
+      function show(i) {
+        var list = visible();
+        current = (i + list.length) % list.length;
+        var fig = list[current];
+        var src = fig.querySelector("img, video");
+        media.innerHTML = "";
+        var el;
+        if (src.tagName === "VIDEO") {
+          el = document.createElement("video");
+          el.src = src.querySelector("source").src;
+          el.autoplay = el.loop = el.muted = el.controls = true;
+          el.playsInline = true;
+        } else {
+          el = document.createElement("img");
+          el.src = src.src; el.alt = src.alt;
+        }
+        media.appendChild(el);
+        caption.textContent = fig.querySelector("figcaption").textContent;
+      }
+      items.forEach(function (it) {
+        it.tabIndex = 0;
+        function open() { show(visible().indexOf(it)); if (box.showModal) box.showModal(); }
+        it.addEventListener("click", open);
+        it.addEventListener("keydown", function (e) { if (e.key === "Enter") open(); });
+      });
+      box.querySelector(".lb-prev").addEventListener("click", function () { show(current - 1); });
+      box.querySelector(".lb-next").addEventListener("click", function () { show(current + 1); });
+      box.querySelector(".lb-close").addEventListener("click", function () { box.close(); });
+      box.addEventListener("click", function (e) { if (e.target === box) box.close(); });
+      box.addEventListener("close", function () { media.innerHTML = ""; });
+      document.addEventListener("keydown", function (e) {
+        if (!box.open) return;
+        if (e.key === "ArrowLeft") show(current - 1);
+        if (e.key === "ArrowRight") show(current + 1);
+      });
     })();
   </script>
 </body>

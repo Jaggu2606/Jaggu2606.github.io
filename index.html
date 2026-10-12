@@ -1,929 +1,416 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jagannath Prasad Sahoo - AI & Robotics Engineer</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --primary-color: #2563eb;
-            --secondary-color: #1e40af;
-            --accent-color: #3b82f6;
-            --text-dark: #1f2937;
-            --text-light: #6b7280;
-            --bg-light: #f9fafb;
-            --bg-white: #ffffff;
-            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            line-height: 1.6;
-            color: var(--text-dark);
-            background: var(--bg-light);
-        }
-
-        /* Navigation */
-        nav {
-            background: var(--bg-white);
-            box-shadow: var(--shadow);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 1rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: var(--primary-color);
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--text-dark);
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: var(--primary-color);
-        }
-
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 6rem 2rem;
-            text-align: center;
-        }
-
-        .hero-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .profile-img {
-            width: 180px;
-            height: 180px;
-            border-radius: 50%;
-            border: 5px solid white;
-            margin-bottom: 2rem;
-            object-fit: cover;
-            box-shadow: var(--shadow-lg);
-        }
-
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-
-        .hero .subtitle {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            opacity: 0.9;
-        }
-
-        .hero .tagline {
-            font-size: 1.1rem;
-            margin-bottom: 2rem;
-            opacity: 0.8;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 1.5rem;
-            justify-content: center;
-            margin-top: 2rem;
-        }
-
-        .social-links a {
-            color: white;
-            font-size: 1.5rem;
-            transition: transform 0.3s;
-        }
-
-        .social-links a:hover {
-            transform: scale(1.2);
-        }
-
-        /* Container */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 4rem 2rem;
-        }
-
-        /* Section */
-        section {
-            margin-bottom: 4rem;
-        }
-
-        .section-title {
-            font-size: 2.5rem;
-            color: var(--text-dark);
-            margin-bottom: 1rem;
-            text-align: center;
-        }
-
-        .section-subtitle {
-            text-align: center;
-            color: var(--text-light);
-            margin-bottom: 3rem;
-            font-size: 1.1rem;
-        }
-
-        /* About Section */
-        .about-content {
-            background: var(--bg-white);
-            padding: 3rem;
-            border-radius: 12px;
-            box-shadow: var(--shadow);
-            line-height: 1.8;
-        }
-
-        .about-content p {
-            margin-bottom: 1rem;
-            color: var(--text-dark);
-        }
-
-        .highlights {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .highlight-card {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: white;
-            padding: 2rem;
-            border-radius: 12px;
-            text-align: center;
-        }
-
-        .highlight-card i {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .highlight-card h3 {
-            margin-bottom: 0.5rem;
-        }
-
-        /* Experience Timeline */
-        .timeline {
-            position: relative;
-            padding-left: 2rem;
-        }
-
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            width: 3px;
-            background: var(--primary-color);
-        }
-
-        .timeline-item {
-            background: var(--bg-white);
-            padding: 2rem;
-            margin-bottom: 2rem;
-            border-radius: 12px;
-            box-shadow: var(--shadow);
-            position: relative;
-        }
-
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -2.5rem;
-            top: 2rem;
-            width: 15px;
-            height: 15px;
-            border-radius: 50%;
-            background: var(--primary-color);
-            border: 3px solid white;
-        }
-
-        .timeline-item h3 {
-            color: var(--primary-color);
-            margin-bottom: 0.5rem;
-        }
-
-        .timeline-item .company {
-            font-weight: 600;
-            color: var(--text-dark);
-            margin-bottom: 0.5rem;
-        }
-
-        .timeline-item .date {
-            color: var(--text-light);
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
-        }
-
-        .timeline-item ul {
-            list-style-position: inside;
-            color: var(--text-dark);
-        }
-
-        .timeline-item li {
-            margin-bottom: 0.5rem;
-        }
-
-        /* Publications */
-        .publications-grid {
-            display: grid;
-            gap: 2rem;
-        }
-
-        .publication-card {
-            background: var(--bg-white);
-            padding: 2rem;
-            border-radius: 12px;
-            box-shadow: var(--shadow);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .publication-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .publication-card h3 {
-            color: var(--primary-color);
-            margin-bottom: 0.5rem;
-        }
-
-        .publication-card .venue {
-            color: var(--text-light);
-            font-style: italic;
-            margin-bottom: 1rem;
-        }
-
-        .publication-badge {
-            display: inline-block;
-            background: var(--accent-color);
-            color: white;
-            padding: 0.25rem 0.75rem;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            margin-top: 0.5rem;
-        }
-
-        /* Projects */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-        }
-
-        .project-card {
-            background: var(--bg-white);
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            transition: transform 0.3s;
-        }
-
-        .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .project-header {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: white;
-            padding: 2rem;
-        }
-
-        .project-header i {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-        }
-
-        .project-content {
-            padding: 2rem;
-        }
-
-        .project-content h3 {
-            color: var(--text-dark);
-            margin-bottom: 1rem;
-        }
-
-        .project-date {
-            color: var(--text-light);
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
-        }
-
-        /* Skills */
-        .skills-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .skill-category {
-            background: var(--bg-white);
-            padding: 2rem;
-            border-radius: 12px;
-            box-shadow: var(--shadow);
-        }
-
-        .skill-category h3 {
-            color: var(--primary-color);
-            margin-bottom: 1.5rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .skill-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.75rem;
-        }
-
-        .skill-tag {
-            background: var(--bg-light);
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            color: var(--text-dark);
-            border: 2px solid var(--primary-color);
-        }
-
-        /* Education */
-        .education-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 2rem;
-        }
-
-        .education-card {
-            background: var(--bg-white);
-            padding: 2rem;
-            border-radius: 12px;
-            box-shadow: var(--shadow);
-            border-left: 5px solid var(--primary-color);
-        }
-
-        .education-card h3 {
-            color: var(--primary-color);
-            margin-bottom: 0.5rem;
-        }
-
-        .education-card .institution {
-            font-weight: 600;
-            color: var(--text-dark);
-            margin-bottom: 0.5rem;
-        }
-
-        .education-card .duration {
-            color: var(--text-light);
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
-        }
-
-        .education-card .cgpa {
-            font-weight: 600;
-            color: var(--secondary-color);
-        }
-
-        /* Contact */
-        .contact-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-        }
-
-        .contact-card {
-            background: var(--bg-white);
-            padding: 2rem;
-            border-radius: 12px;
-            box-shadow: var(--shadow);
-            text-align: center;
-            transition: transform 0.3s;
-        }
-
-        .contact-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .contact-card i {
-            font-size: 2.5rem;
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-        }
-
-        .contact-card h3 {
-            margin-bottom: 0.5rem;
-            color: var(--text-dark);
-        }
-
-        .contact-card a {
-            color: var(--primary-color);
-            text-decoration: none;
-            word-break: break-all;
-        }
-
-        .contact-card a:hover {
-            text-decoration: underline;
-        }
-
-        /* Footer */
-        footer {
-            background: var(--text-dark);
-            color: white;
-            text-align: center;
-            padding: 2rem;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2rem;
-            }
-
-            .hero .subtitle {
-                font-size: 1.2rem;
-            }
-
-            .nav-links {
-                flex-direction: column;
-                gap: 1rem;
-            }
-
-            .projects-grid,
-            .education-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* Smooth scroll */
-        html {
-            scroll-behavior: smooth;
-        }
-    </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Jagannath Prasad Sahoo — AI & Robotics</title>
+  <meta name="description" content="Portfolio of Jagannath Prasad Sahoo — bipedal robotics, reinforcement learning, and autonomous multi-agent systems">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Navigation -->
-    <nav>
-        <div class="nav-container">
-            <div class="logo">JPS</div>
-            <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#publications">Publications</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#education">Education</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </div>
-    </nav>
+  <!-- Reusable icons -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="i-mail" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 2v.01L12 13 4 6.01V6h16zm0 12H4V8l8 5 8-5v10z"/></symbol>
+    <symbol id="i-linkedin" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.761 0 5-2.239 5-5v-14c0-2.761-2.239-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.268c-.966 0-1.75-.784-1.75-1.75s.784-1.75 1.75-1.75 1.75.784 1.75 1.75-.784 1.75-1.75 1.75zm13.5 11.268h-3v-5.604c0-1.337-.026-3.063-1.867-3.063-1.868 0-2.154 1.459-2.154 2.967v5.7h-3v-10h2.881v1.367h.041c.401-.761 1.379-1.563 2.838-1.563 3.036 0 3.6 2.001 3.6 4.601v5.595z"/></symbol>
+    <symbol id="i-github" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.757-1.333-1.757-1.089-.745.083-.729.083-.729 1.205.084 1.84 1.236 1.84 1.236 1.07 1.834 2.809 1.304 3.495.997.108-.775.418-1.305.762-1.605-2.665-.305-5.466-1.332-5.466-5.93 0-1.31.469-2.381 1.236-3.221-.124-.303-.535-1.523.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.553 3.297-1.23 3.297-1.23.653 1.653.242 2.873.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.803 5.624-5.475 5.921.43.371.823 1.102.823 2.222v3.293c0 .321.218.694.825.576C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></symbol>
+    <symbol id="i-scholar" viewBox="0 0 24 24"><path d="M12 24a7 7 0 1 1 0-14 7 7 0 0 1 0 14zm0-24L0 9.5l4.838 3.94A8 8 0 0 1 12 9a8 8 0 0 1 7.162 4.44L24 9.5z"/></symbol>
+  </svg>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <img src="https://github.com/Jaggu2606.png" alt="Jagannath Prasad Sahoo" class="profile-img">
-            <h1>Jagannath Prasad Sahoo</h1>
-            <p class="subtitle">AI & Robotics Engineer</p>
-            <p class="tagline">Developing intelligent bipedal robots and autonomous systems through cutting-edge AI and reinforcement learning</p>
-            <div class="social-links">
-                <a href="https://www.linkedin.com/in/jagannath-prasad-sahoo-1b4977b8/" target="_blank" title="LinkedIn">
-                    <i class="fab fa-linkedin"></i>
-                </a>
-                <a href="https://github.com/Jaggu2606" target="_blank" title="GitHub">
-                    <i class="fab fa-github"></i>
-                </a>
-                <a href="mailto:sahoojagannathprasad@gmail.com" title="Email">
-                    <i class="fas fa-envelope"></i>
-                </a>
-            </div>
-        </div>
+  <header class="site-header">
+    <div class="wrap">
+      <h1 class="logo"><a href="#about">Jagannath Prasad Sahoo</a></h1>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#work-experience">Experience</a>
+        <a href="#education">Education</a>
+        <a href="#publications">Publications</a>
+        <a href="#awards">Awards</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- ================= Hero ================= -->
+    <section class="hero wrap" id="about">
+      <div class="hero-text">
+        <h2>Hi — I’m Jagannath Prasad Sahoo</h2>
+        <p class="tagline">AI & Robotics engineer • Bipedal locomotion • Reinforcement learning • Multi-agent systems</p>
+        <p>I build robots end to end, from mechanical design and FEA through dynamic modeling and learning-based control to real-time ROS deployment. I hold an M.Tech (Research) in AI and Robotics from <span class="highlight">IIT Mandi</span>, where my thesis covered the design, development and experimental validation of a bipedal robot for adaptive locomotion and navigation. Before that, I did product development at Dover India and spacecraft research at ISRO.</p>
+        <p class="contact-links">
+          <a class="btn" href="#projects">See projects</a>
+          <a class="btn ghost" href="media/Jagannath_Prasad_Sahoo_Resume.pdf" target="_blank" rel="noopener">Download resume</a>
+        </p>
+        <p class="links-label">Contacts and links</p>
+        <p class="social">
+          <a href="mailto:sahoojagannathprasad@gmail.com" title="Email" aria-label="Email"><svg><use href="#i-mail"/></svg></a>
+          <a href="https://www.linkedin.com/in/jagannath-prasad-sahoo" target="_blank" rel="noopener" title="LinkedIn" aria-label="LinkedIn"><svg><use href="#i-linkedin"/></svg></a>
+          <a href="https://github.com/Jaggu2606" target="_blank" rel="noopener" title="GitHub" aria-label="GitHub"><svg><use href="#i-github"/></svg></a>
+          <!-- Add your Google Scholar link and uncomment:
+          <a href="https://scholar.google.com/citations?user=YOUR_ID" target="_blank" rel="noopener" title="Google Scholar" aria-label="Google Scholar"><svg><use href="#i-scholar"/></svg></a> -->
+        </p>
+      </div>
+      <!-- Drop a photo at media/profile.jpg — the initials show until then -->
+      <div class="profile-pic" data-initials="JPS">
+        <img src="media/profile.jpg" alt="Jagannath Prasad Sahoo" fetchpriority="high" onerror="this.remove()">
+      </div>
     </section>
 
-    <!-- About Section -->
-    <div class="container">
-        <section id="about">
-            <h2 class="section-title">About Me</h2>
-            <p class="section-subtitle">Passionate researcher bridging classical control and modern AI</p>
-            <div class="about-content">
-                <p>I'm an AI and Robotics Engineer currently pursuing my M.Tech(R) at <strong>IIT Mandi</strong>, specializing in the <strong>Design, Simulation, and Development of Bipedal Robots</strong>. With a strong foundation in mechanical engineering and hands-on experience in robotics, I'm dedicated to pushing the boundaries of autonomous systems and reinforcement learning-based control.</p>
-                
-                <p>My research focuses on developing multi-skill locomotion capabilities for underactuated bipedal robots using advanced reinforcement learning techniques. I'm particularly interested in bridging the gap between classical control theory and modern machine learning approaches to create more robust and adaptive robotic systems.</p>
-                
-                <div class="highlights">
-                    <div class="highlight-card">
-                        <i class="fas fa-robot"></i>
-                        <h3>Research Focus</h3>
-                        <p>Bipedal Robotics & RL Control</p>
-                    </div>
-                    <div class="highlight-card">
-                        <i class="fas fa-graduation-cap"></i>
-                        <h3>Education</h3>
-                        <p>M.Tech(R) @ IIT Mandi</p>
-                    </div>
-                    <div class="highlight-card">
-                        <i class="fas fa-award"></i>
-                        <h3>Achievement</h3>
-                        <p>Best Outgoing Student 2023</p>
-                    </div>
-                    <div class="highlight-card">
-                        <i class="fas fa-file-alt"></i>
-                        <h3>Publications</h3>
-                        <p>6+ Research Papers</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+    <!-- ================= Interests ================= -->
+    <section class="wrap" id="about-detailed">
+      <h3>Current work and interests</h3>
+      <p>
+        My work centres on <span class="highlight">bipedal robot design</span> and <span class="highlight">learning-based locomotion</span>: designing small-scale bipeds from scratch, modeling their kinematics and stability, and training RL policies that walk, run and navigate around obstacles. I also work on <span class="highlight">autonomous multi-agent systems</span>, including heterogeneous UAV–UGV teams, potential-field planners for industrial navigation and vision-based field robots. I’m keen to collaborate on:
+      </p>
+      <ul class="two-col">
+        <li>Legged & bipedal robotics</li>
+        <li>Reinforcement learning</li>
+        <li>Sim-to-real transfer</li>
+        <li>Multi-agent coordination</li>
+        <li>Vision Language Models & agentic AI</li>
+        <li>Motion & path planning</li>
+        <li>Mechanical design & hardware integration</li>
+      </ul>
+    </section>
 
-        <!-- Experience Section -->
-        <section id="experience">
-            <h2 class="section-title">Professional Experience</h2>
-            <p class="section-subtitle">Building expertise across robotics, AI, and mechanical design</p>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <h3>Project Associate I</h3>
-                    <p class="company">Indian Institute of Technology, Mandi</p>
-                    <p class="date">January 2025 - Present</p>
-                    <ul>
-                        <li>Working on Autonomous Pipe Inspection systems</li>
-                        <li>Developing AI-powered solutions for industrial applications</li>
-                        <li>Implementing computer vision and robotics algorithms</li>
-                    </ul>
-                </div>
+    <!-- ================= News ================= -->
+    <section class="wrap section-alt" id="news-highlights">
+      <h3>News & Highlights</h3>
+      <ol class="news">
+        <li class="news-item">
+          <div class="news-meta"><span class="news-date">Sep 2026</span><span class="news-tag tag-role">Degree</span></div>
+          <h4>M.Tech (Research) in AI and Robotics awarded by IIT Mandi</h4>
+          <p>Degree awarded on 02 September 2026 (CGPA 8.57/10). Thesis: “Design, Development and Experimental Validation of a Bipedal Robot for Adaptive Locomotion and Navigation”, supervised by Dr. Amit Shukla.</p>
+        </li>
+        <li class="news-item">
+          <div class="news-meta"><span class="news-date">2026</span><span class="news-tag tag-talk">Oral</span></div>
+          <h4>Contributed oral accepted at IEEE ICARCV 2026</h4>
+          <p>“Hardware model-mediated teleoperation for a force-blind low-cost manipulator with a single-scalar contact sensor”, Halong Bay, Vietnam.</p>
+        </li>
+        <li class="news-item">
+          <div class="news-meta"><span class="news-date">2026</span><span class="news-tag tag-paper">Paper</span></div>
+          <h4>Papers at IEEE ICARA 2026 and ICVGIP</h4>
+          <p>Heterogeneous multi-agent coordination with adaptive perimeter-field navigation (ICARA), and TongueSight, an AI-powered tongue analysis system for digitizing traditional medicine diagnostics (ICVGIP).</p>
+        </li>
+        <li class="news-item">
+          <div class="news-meta"><span class="news-date">Jan 2026</span><span class="news-tag tag-research">Teaching</span></div>
+          <h4>Teaching Assistant for AR-525 Reinforcement Learning for Robotics</h4>
+          <p>Covered policy gradient and actor-critic methods, built simulation-based assignments and mentored student projects at IIT Mandi. Later received the Best Teaching Assistant Award.</p>
+        </li>
+        <li class="news-item">
+          <div class="news-meta"><span class="news-date">Dec 2025</span><span class="news-tag tag-talk">Talk</span></div>
+          <h4>Presented at the Indian Control Conference (ICC-11)</h4>
+          <p>“Learning multi-skill locomotion in underactuated biped: a waypoint-based reward shaping approach.”</p>
+        </li>
+      </ol>
 
-                <div class="timeline-item">
-                    <h3>M.Tech(R) Research Scholar</h3>
-                    <p class="company">Indian Institute of Technology, Mandi</p>
-                    <p class="date">March 2024 - December 2026</p>
-                    <ul>
-                        <li>Design, Simulation, and Development of Bipedal Robots</li>
-                        <li>Implementing learning-based control systems using ROS, Gazebo, PyBullet</li>
-                        <li>Developing multi-skill locomotion using reinforcement learning</li>
-                    </ul>
-                </div>
+      <details class="news-more">
+        <summary>
+          <span class="news-more-show">Show earlier highlights</span>
+          <span class="news-more-hide">Hide earlier highlights</span>
+        </summary>
+        <ol class="news news-earlier">
+          <li class="news-item">
+            <div class="news-meta"><span class="news-date">2025</span><span class="news-tag tag-paper">Paper</span></div>
+            <h4>Two papers presented at ICCAS 2025, Korea</h4>
+            <p>Design, kinematic modeling and stability verification of a small-scale biped robot, and kinematics-based real-time distance monitoring for safe multi-arm robot operations.</p>
+          </li>
+          <li class="news-item">
+            <div class="news-meta"><span class="news-date">2025</span><span class="news-tag tag-talk">Event</span></div>
+            <h4>Participant at ROSCon India 2025</h4>
+          </li>
+          <li class="news-item">
+            <div class="news-meta"><span class="news-date">2025</span><span class="news-tag tag-paper">Paper</span></div>
+            <h4>Survey presented at IEEE ICCCNT 2025</h4>
+            <p>“From classical control to reinforcement learning: trends in bipedal robot locomotion.”</p>
+          </li>
+          <li class="news-item">
+            <div class="news-meta"><span class="news-date">2022</span><span class="news-tag tag-award">Award</span></div>
+            <h4>Best Paper Award at the 73rd International Astronautical Congress, Paris</h4>
+          </li>
+        </ol>
+      </details>
 
-                <div class="timeline-item">
-                    <h3>Design Engineer</h3>
-                    <p class="company">Dover India Pvt. Ltd</p>
-                    <p class="date">July 2023 - March 2024</p>
-                    <ul>
-                        <li>Worked on NPD, R&D, Automation, and VAVE projects in Double Diaphragm Pump Sectors</li>
-                        <li>Conducted comprehensive FEA and stress testing analyses</li>
-                        <li>Ensured products meet technical requirements and safety standards</li>
-                        <li>Participated in Design for Manufacturing (DFM) discussions</li>
-                    </ul>
-                </div>
+      <!-- Optional photo strip: add images to media/ and uncomment
+      <div class="news-figs">
+        <figure><img src="media/icc.jpg" alt="Presenting at ICC-11" loading="lazy"><figcaption>Presenting at ICC-11, 2025</figcaption></figure>
+        <figure><img src="media/iccas.jpg" alt="ICCAS 2025, Korea" loading="lazy"><figcaption>ICCAS 2025, Korea</figcaption></figure>
+      </div> -->
+    </section>
 
-                <div class="timeline-item">
-                    <h3>Design Engineering Intern</h3>
-                    <p class="company">Dover India Pvt. Ltd</p>
-                    <p class="date">February 2023 - July 2023</p>
-                    <ul>
-                        <li>Collaborated with cross-functional teams to understand market needs</li>
-                        <li>Conducted engineering analyses including FEA</li>
-                        <li>Engaged in DFM discussions to enhance manufacturability</li>
-                    </ul>
-                </div>
+    <!-- ================= Robotics projects ================= -->
+    <!-- Each media slot shows a placeholder until the referenced file exists in media/.
+         Use .webm/.mp4 inside <video> for clips, or swap in an <img>. -->
+    <section class="wrap" id="projects">
+      <h3>Robotics Projects</h3>
 
-                <div class="timeline-item">
-                    <h3>Project Trainee</h3>
-                    <p class="company">Indian Space Research Organization (ISRO)</p>
-                    <p class="date">December 2021 - December 2022</p>
-                    <ul>
-                        <li>Modeling, Design, and Analysis of Vibration Isolation System in Spacecraft</li>
-                        <li>Designed and analyzed Vibration Isolation System (VIS) in six degrees of freedom</li>
-                        <li>Conducted FEA and compared with theoretical calculations</li>
-                        <li>Performed tests across 20-2000 Hz frequency range</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
+      <article class="card project-card">
+        <div class="project-media" data-label="Biped walking / running clip">
+          <video autoplay loop muted playsinline onerror="this.parentElement.classList.add('empty')">
+            <source src="media/biped.webm" type="video/webm" onerror="this.parentElement.parentElement.classList.add('empty')">
+          </video>
+        </div>
+        <div class="project-figure" data-label="Biped CAD / control diagram">
+          <img src="media/biped_diagram.png" alt="Biped robot design and control architecture" loading="lazy" onerror="this.parentElement.classList.add('empty')">
+        </div>
+        <div class="project-body">
+          <h4>Multi-Skill Bipedal Robot with Learning-Based Control</h4>
+          <p class="project-date">Mar 2024 – Sep 2026 · M.Tech thesis, IIT Mandi</p>
+          <p>
+            Designed a <strong>small-scale biped robot</strong> from the ground up, covering mechanical design, kinematic modeling and stability analysis. Trained locomotion policies with <strong>PPO, TD3 and SAC</strong> that achieve robust walking and running at <strong>over 90% success</strong>, using waypoint-based reward shaping to learn multiple skills on an underactuated platform.
+          </p>
+          <p>
+            Policies were developed in <strong>Gazebo, PyBullet and Isaac Gym</strong> and deployed on hardware through a <strong>ROS2 sim-to-real pipeline</strong>.
+          </p>
+          <ul class="tags"><li>Reinforcement learning</li><li>Bipedal locomotion</li><li>ROS2</li><li>Isaac Gym</li><li>Sim-to-real</li></ul>
+        </div>
+      </article>
 
-        <!-- Publications Section -->
-        <section id="publications">
-            <h2 class="section-title">Research Publications</h2>
-            <p class="section-subtitle">Contributing to bipedal robotics and aerospace research</p>
-            <div class="publications-grid">
-                <div class="publication-card">
-                    <h3>Learning Multi-Skill Locomotion in Underactuated Biped: A Waypoint-Based Reward Shaping Approach</h3>
-                    <p class="venue">Eleventh Indian Control Conference (ICC-11)</p>
-                    <span class="publication-badge">2025</span>
-                </div>
+      <article class="card project-card">
+        <div class="project-media" data-label="Obstacle-aware walking clip">
+          <video autoplay loop muted playsinline>
+            <source src="media/hrl_biped.webm" type="video/webm" onerror="this.parentElement.parentElement.classList.add('empty')">
+          </video>
+        </div>
+        <div class="project-figure" data-label="Hierarchical policy diagram">
+          <img src="media/hrl_diagram.png" alt="Hierarchical RL architecture" loading="lazy" onerror="this.parentElement.classList.add('empty')">
+        </div>
+        <div class="project-body">
+          <h4>Hierarchical RL for Collision-Free Locomotion of an Underactuated Biped</h4>
+          <p class="project-date">Feb 2026 – Jul 2026</p>
+          <p>
+            A two-level control architecture for obstacle-aware bipedal locomotion. A <strong>high-level waypoint policy</strong> reasons about the environment and proposes intermediate goals, and a <strong>low-level gait policy</strong> turns them into stable footsteps. Splitting navigation from gait generation lets an underactuated biped move through cluttered scenes without collisions.
+          </p>
+          <ul class="tags"><li>Hierarchical RL</li><li>Navigation</li><li>Gait control</li></ul>
+        </div>
+      </article>
 
-                <div class="publication-card">
-                    <h3>Design, Kinematic Modeling, and Stability Verification of a Small-Scale Biped Robot</h3>
-                    <p class="venue">25th International Conference on Control, Automation and Systems (ICCAS 2025)</p>
-                    <span class="publication-badge">2025</span>
-                </div>
+      <article class="card project-card">
+        <div class="project-media" data-label="Field robot tracing a cable">
+          <img src="media/cable_tracing.jpg" alt="Autonomous buried cable tracing robot" loading="lazy" onerror="this.parentElement.classList.add('empty')">
+        </div>
+        <div class="project-figure" data-label="GPS map of traced cable route">
+          <img src="media/cable_map.png" alt="GPS map of buried cable route" loading="lazy" onerror="this.parentElement.classList.add('empty')">
+        </div>
+        <div class="project-body">
+          <h4>Autonomous Buried Power Cable Tracing Using Electromagnetic Locator Feedback</h4>
+          <p class="project-date">Jan 2025 – Jun 2026</p>
+          <p>
+            A ground robot that follows <strong>buried power cables</strong> using feedback from an electromagnetic locator. It has no predefined goal and steers to keep the signal strong, with <strong>goal-free obstacle avoidance</strong> along the way. It also builds a <strong>GPS map</strong> of the cable route as it drives. The work runs alongside an <strong>autonomous pipe inspection system</strong> that uses computer vision for real-time navigation and defect detection.
+          </p>
+          <ul class="tags"><li>Field robotics</li><li>Sensor fusion</li><li>Obstacle avoidance</li><li>GPS mapping</li></ul>
+        </div>
+      </article>
 
-                <div class="publication-card">
-                    <h3>From Classical Control to Reinforcement Learning: Trends in Bipedal Robot Locomotion</h3>
-                    <p class="venue">IEEE International Conference on Computing, Communication and Networking Technologies (ICCCNT 2025)</p>
-                    <span class="publication-badge">2025</span>
-                </div>
+      <article class="card project-card">
+        <div class="project-media" data-label="UGV tracking a UAV">
+          <video autoplay loop muted playsinline>
+            <source src="media/uav_tracking.webm" type="video/webm" onerror="this.parentElement.parentElement.classList.add('empty')">
+          </video>
+        </div>
+        <div class="project-figure" data-label="Vision-based policy pipeline">
+          <img src="media/uav_pipeline.png" alt="Vision-based tracking policy" loading="lazy" onerror="this.parentElement.classList.add('empty')">
+        </div>
+        <div class="project-body">
+          <h4>Deep RL for Vision-Based UAV Tracking by an Autonomous Ground Vehicle</h4>
+          <p class="project-date">Jan 2026 – Aug 2026</p>
+          <p>
+            A <strong>vision-driven tracking policy</strong> for a heterogeneous <strong>UAV–UGV team</strong>, in which the ground vehicle learns with deep reinforcement learning to keep an aerial partner in view and follow it using onboard camera observations.
+          </p>
+          <ul class="tags"><li>Deep RL</li><li>Computer vision</li><li>UAV–UGV teams</li></ul>
+        </div>
+      </article>
 
-                <div class="publication-card">
-                    <h3>A Novel Approach for Payload Design to Streamline Deep Space Missions: Molecular Nanoscience</h3>
-                    <p class="venue">73rd International Astronautical Congress (IAC), Paris, France</p>
-                    <span class="publication-badge">2022</span>
-                </div>
+      <!-- Smaller projects -->
+      <div class="small-projects-grid">
+        <article class="card mini-card">
+          <div class="mini-media" data-label="MPPF"><img src="media/mppf.png" alt="Mobile probe potential field navigation" loading="lazy" onerror="this.parentElement.classList.add('empty')"></div>
+          <h5>MPPF: Mobile Probe Potential Field</h5>
+          <p>Probe-based potential field planner for real-time multi-agent navigation in industrial environments.</p>
+        </article>
+        <article class="card mini-card">
+          <div class="mini-media" data-label="Teleoperation"><img src="media/teleop.png" alt="Model-mediated teleoperation" loading="lazy" onerror="this.parentElement.classList.add('empty')"></div>
+          <h5>Model-Mediated Teleoperation</h5>
+          <p>Teleoperation of a force-blind, low-cost manipulator using a hardware model and a single-scalar contact sensor.</p>
+        </article>
+        <article class="card mini-card">
+          <div class="mini-media" data-label="Smart water"><img src="media/water.png" alt="Smart water monitoring" loading="lazy" onerror="this.parentElement.classList.add('empty')"></div>
+          <h5>Smart Water Monitoring, IISc</h5>
+          <p>IoT-based flow monitoring with anomaly detection, deployed at 98% accuracy.</p>
+        </article>
+        <article class="card mini-card">
+          <div class="mini-media" data-label="Turbofan RUL"><img src="media/turbofan.png" alt="Turbofan remaining useful life prediction" loading="lazy" onerror="this.parentElement.classList.add('empty')"></div>
+          <h5>Turbofan Predictive Maintenance</h5>
+          <p>Ensemble ML models for remaining-useful-life prediction of aircraft engines at 92% accuracy.</p>
+        </article>
+      </div>
+    </section>
 
-                <div class="publication-card">
-                    <h3>Design of Propulsion System for CubeSat: N2O and C2H4 as Green Bipropellant</h3>
-                    <p class="venue">Journal of Aerospace Sciences and Technologies, Vol.74, No.2, pp.126-140</p>
-                    <span class="publication-badge">2022</span>
-                </div>
+    <!-- ================= Mechanical / aerospace ================= -->
+    <section class="wrap section-alt" id="hardware-projects">
+      <h3>Mechanical & Aerospace Engineering</h3>
+      <div class="grid">
+        <article class="card hw-card">
+          <div class="hw-media" data-label="Isolation system"><img src="media/vis.png" alt="Spacecraft vibration isolation system" loading="lazy" onerror="this.parentElement.classList.add('empty')"></div>
+          <div>
+            <h4>6-DOF Vibration Isolation System for Spacecraft — ISRO</h4>
+            <p>Designed and analyzed a six degree-of-freedom vibration isolation system. Validated natural frequencies against analytical models and ran vibration testing from 20 to 2000 Hz.</p>
+          </div>
+        </article>
+        <article class="card hw-card">
+          <div class="hw-media" data-label="Pump systems"><img src="media/pump.png" alt="Double diaphragm pump" loading="lazy" onerror="this.parentElement.classList.add('empty')"></div>
+          <div>
+            <h4>Double Diaphragm Pump Development — Dover India</h4>
+            <p>New product development, R&D and automation for double diaphragm pump systems. FEA and stress testing, plus a <strong>15% cost reduction</strong> through VAVE, design optimization and DFM.</p>
+          </div>
+        </article>
+        <article class="card hw-card">
+          <div class="hw-media" data-label="Rocketry"><img src="media/rocketry.jpg" alt="STARDUST RIT Rocketry" loading="lazy" onerror="this.parentElement.classList.add('empty')"></div>
+          <div>
+            <h4>STARDUST RIT Rocketry & Spacecraft Propulsion</h4>
+            <p>Student coordinator for Aerodynamics and Structures (2020–2022). Designed a green bipropellant (N<sub>2</sub>O/C<sub>2</sub>H<sub>4</sub>) propulsion system for CubeSats and a propulsion system for an interplanetary mission to Venus.</p>
+          </div>
+        </article>
+      </div>
+    </section>
 
-                <div class="publication-card">
-                    <h3>Analysis and Design of a Propulsion System for an Interplanetary Mission to Venus</h3>
-                    <p class="venue">International Research Journal of Engineering and Technology (IRJET), Volume: 09 Issue: 02</p>
-                    <span class="publication-badge">2022</span>
-                </div>
-            </div>
-        </section>
+    <!-- ================= Publications ================= -->
+    <section class="wrap" id="publications">
+      <h3>Publications</h3>
+      <ul class="pubs">
+        <li><span>Datta, S., <strong>Sahoo, J. P.</strong>, Surya Prakash S. K., and Shukla, A.</span> “Hardware model-mediated teleoperation for a force-blind low-cost manipulator with a single-scalar contact sensor.” <em>IEEE ICARCV 2026, Halong Bay, Vietnam</em>. Accepted, contributed oral.</li>
+        <li><span>Prajapati, D., Kumar, P., Surya Prakash S. K., Mehra, A., Rana, A., <strong>Sahoo, J. P.</strong>, Reddy, T. J., and Shukla, A.</span> “Reference-coupled heterogeneous multi-agent coordination with real-time adaptive perimeter field navigation.” <em>12th IEEE ICARA 2026</em>, pp. 307–312.</li>
+        <li><span>Sharma, V., <strong>Sahoo, J. P.</strong>, Shukla, A., Ameta, D., Shorey, J., Reddy, S., Shewale, P. P., and Sharma, S.</span> “TongueSight: AI-powered tongue analysis for digitizing traditional medicine diagnostics.” <em>16th ICVGIP</em>, 2026, Article 22, pp. 1–7.</li>
+        <li><span><strong>Sahoo, J. P.</strong>, et al.</span> “Learning multi-skill locomotion in underactuated biped: a waypoint-based reward shaping approach.” <em>Indian Control Conference (ICC-11)</em>, 2025.</li>
+        <li><span><strong>Sahoo, J. P.</strong>, et al.</span> “Design, kinematic modeling, and stability verification of a small-scale biped robot.” <em>ICCAS 2025, Korea</em>.</li>
+        <li><span>Surya Prakash S. K., Prajapati, D. K., Narula, B., <strong>Sahoo, J.</strong>, and Shukla, A.</span> “Kinematics-based real-time distance monitoring for safe multi-arm robot operations.” <em>ICCAS 2025, Incheon, Korea</em>, pp. 1491–1497.</li>
+        <li><span><strong>Sahoo, J. P.</strong>, et al.</span> “From classical control to reinforcement learning: trends in bipedal robot locomotion.” <em>IEEE ICCCNT 2025</em>.</li>
+        <li><span>Madhu Kumar, T. M., Jyothi Kini, H., Praveen, M., Mohan Kumar, <strong>Sahoo, J. P.</strong>, Deepayan, N. C., and Sindhushree, K. L.</span> “Polyethene composites for X-band electromagnetic interference shielding using conductive MWCNT and graphene nanoplatelets with soft magnetic MgFe<sub>2</sub>O<sub>4</sub> nanoparticles.” <em>Functional Composites and Structures</em>, 7(3), 035011, 2025.</li>
+        <li><span><strong>Sahoo, J. P.</strong>, et al.</span> “A novel approach for payload design to streamline deep space missions: molecular nanoscience.” <em>73rd IAC, Paris, France</em>, 2022. <span class="pub-badge">Best Paper Award</span></li>
+        <li><span><strong>Sahoo, J. P.</strong>, et al.</span> “Design of propulsion system for CubeSat: N<sub>2</sub>O and C<sub>2</sub>H<sub>4</sub> as green bipropellant.” <em>Journal of Aerospace Sciences and Technologies</em>, 74(2), 2022.</li>
+        <li><span><strong>Sahoo, J. P.</strong>, et al.</span> “Analysis and design of a propulsion system for an interplanetary mission to Venus.” <em>International Research Journal of Engineering and Technology</em>, 9(2), 2022.</li>
+      </ul>
+    </section>
 
-        <!-- Projects Section -->
-        <section id="projects">
-            <h2 class="section-title">Key Projects</h2>
-            <p class="section-subtitle">Innovative solutions in robotics, AI, and aerospace</p>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-header">
-                        <i class="fas fa-robot"></i>
-                        <h3>Bipedal Robot Development</h3>
-                    </div>
-                    <div class="project-content">
-                        <p class="project-date">March 2024 - Present</p>
-                        <p>Designing and simulating bipedal robots using ROS, Gazebo, and PyBullet. Implementing learning-based control systems and developing multi-skill locomotion capabilities using reinforcement learning techniques.</p>
-                    </div>
-                </div>
+    <!-- ================= Experience ================= -->
+    <section class="wrap section-alt" id="work-experience">
+      <h3>Work Experience</h3>
+      <div class="timeline">
+        <article class="exp">
+          <div class="exp-logo" data-initials="IIT">
+            <img src="media/iit_mandi.png" alt="IIT Mandi logo" loading="lazy" onerror="this.remove()">
+          </div>
+          <div class="exp-body">
+            <div class="exp-head"><h4>Project Associate I</h4><span class="exp-date">Jan 2025 – Jul 2026</span></div>
+            <p class="exp-org"><a href="https://www.iitmandi.ac.in" target="_blank" rel="noopener">Indian Institute of Technology Mandi</a></p>
+            <ul>
+              <li>Led development of an <strong>autonomous pipe inspection system</strong> based on computer vision and robotics.</li>
+              <li>Built the end-to-end pipeline: hardware integration, sensor fusion, path planning and deployment with real-time navigation, obstacle avoidance and defect detection.</li>
+            </ul>
+          </div>
+        </article>
+        <article class="exp">
+          <div class="exp-logo" data-initials="IIT">
+            <img src="media/iit_mandi.png" alt="IIT Mandi logo" loading="lazy" onerror="this.remove()">
+          </div>
+          <div class="exp-body">
+            <div class="exp-head"><h4>Teaching Assistant</h4><span class="exp-date">Jan 2026 – Jul 2026</span></div>
+            <p class="exp-org"><a href="https://www.iitmandi.ac.in" target="_blank" rel="noopener">Indian Institute of Technology Mandi</a></p>
+            <ul>
+              <li><strong>AR-525 Reinforcement Learning for Robotics:</strong> policy gradient and actor-critic methods, simulation-based assignments and project mentoring.</li>
+              <li><strong>IC-140 Foundation for Design Practicum:</strong> hands-on mechatronic design, prototyping and project evaluation.</li>
+            </ul>
+          </div>
+        </article>
+        <article class="exp">
+          <div class="exp-logo" data-initials="DOVER">
+            <img src="media/dover.png" alt="Dover logo" loading="lazy" onerror="this.remove()">
+          </div>
+          <div class="exp-body">
+            <div class="exp-head"><h4>Design Engineer</h4><span class="exp-date">Jul 2023 – Mar 2024</span></div>
+            <p class="exp-org"><a href="https://www.dovercorporation.com" target="_blank" rel="noopener">Dover India Private Limited</a></p>
+            <ul>
+              <li>Led new product development, R&D and automation projects for double diaphragm pump systems.</li>
+              <li>Conducted FEA and stress testing, and reduced cost by 15% through VAVE, design optimization and DFM.</li>
+            </ul>
+          </div>
+        </article>
+        <article class="exp">
+          <div class="exp-logo" data-initials="ISRO">
+            <img src="media/isro.png" alt="ISRO logo" loading="lazy" onerror="this.remove()">
+          </div>
+          <div class="exp-body">
+            <div class="exp-head"><h4>Project Trainee</h4><span class="exp-date">Dec 2021 – Dec 2022</span></div>
+            <p class="exp-org"><a href="https://www.isro.gov.in" target="_blank" rel="noopener">Indian Space Research Organisation (ISRO)</a></p>
+            <ul>
+              <li>Designed and analyzed a six degree-of-freedom vibration isolation system for spacecraft.</li>
+              <li>Validated natural frequencies against analytical models and performed vibration testing from 20 to 2000 Hz.</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </section>
 
-                <div class="project-card">
-                    <div class="project-header">
-                        <i class="fas fa-route"></i>
-                        <h3>RL-Based Path Planning</h3>
-                    </div>
-                    <div class="project-content">
-                        <p class="project-date">February 2025 - June 2025</p>
-                        <p>Implementing reinforcement learning-based path planning techniques for mobile robots. Developing obstacle avoidance and navigation algorithms for autonomous systems.</p>
-                    </div>
-                </div>
+    <!-- ================= Education ================= -->
+    <section class="wrap" id="education">
+      <h3>Education</h3>
+      <div class="timeline">
+        <article class="exp exp--nologo">
+          <div class="exp-body">
+            <div class="exp-head"><h4>M.Tech (Research), AI and Robotics</h4><span class="exp-date">Mar 2024 – Sep 2026</span></div>
+            <p class="exp-org"><a href="https://www.iitmandi.ac.in" target="_blank" rel="noopener">Indian Institute of Technology (IIT) Mandi</a> · Supervisor: Dr. Amit Shukla · CGPA 8.57/10</p>
+            <ul>
+              <li>Thesis: <em>Design, Development and Experimental Validation of a Bipedal Robot for Adaptive Locomotion and Navigation.</em></li>
+              <li>Coursework: Robot Kinematics, Dynamics and Control · Mechatronics · Robot Programming · Modeling and Simulation · Principles of Robot Autonomy · Deep Learning and Applications.</li>
+            </ul>
+          </div>
+        </article>
+        <article class="exp exp--nologo">
+          <div class="exp-body">
+            <div class="exp-head"><h4>B.E., Mechanical Engineering</h4><span class="exp-date">Aug 2019 – Jun 2023</span></div>
+            <p class="exp-org"><a href="https://www.msrit.edu" target="_blank" rel="noopener">Ramaiah Institute of Technology, Bengaluru</a> · CGPA 8.90/10</p>
+            <ul>
+              <li>Best Outgoing Student Award for Academics and Co-curricular Activities.</li>
+              <li>Coursework: Robotics · Nanotechnology · Machine Design · Kinematics and Dynamics of Machines · Manufacturing Processes · CAD and CAM.</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </section>
 
-                <div class="project-card">
-                    <div class="project-header">
-                        <i class="fas fa-tint"></i>
-                        <h3>Smart Water Monitoring System</h3>
-                    </div>
-                    <div class="project-content">
-                        <p class="project-date">May 2022 - July 2022</p>
-                        <p>Designed and fabricated IoT-based water flow monitoring device at IISc Bangalore. Implemented smart monitoring for water storage tanks with real-time data collection.</p>
-                    </div>
-                </div>
+    <!-- ================= Skills ================= -->
+    <section class="wrap section-alt" id="skills">
+      <h3>Technical Skills</h3>
+      <div class="skills-grid">
+        <div class="card"><h4>Robotics & Control</h4><ul class="tags"><li>ROS</li><li>ROS2</li><li>Bipedal robotics</li><li>Control systems</li><li>Motion & path planning</li><li>Kinematics & dynamics</li></ul></div>
+        <div class="card"><h4>AI & Machine Learning</h4><ul class="tags"><li>Reinforcement learning</li><li>Deep learning</li><li>Computer vision</li><li>Vision Language Models</li><li>Agentic AI</li></ul></div>
+        <div class="card"><h4>Simulation & Programming</h4><ul class="tags"><li>Gazebo</li><li>PyBullet</li><li>Isaac Gym</li><li>MuJoCo</li><li>MATLAB</li><li>Python</li><li>C / C++</li><li>Git</li><li>Linux</li></ul></div>
+        <div class="card"><h4>CAD & Analysis</h4><ul class="tags"><li>SolidWorks</li><li>UG NX</li><li>ANSYS (FEA)</li><li>NASTRAN</li><li>DFMEA</li><li>DFM</li><li>NPD · R&D · VAVE</li></ul></div>
+      </div>
+    </section>
 
-                <div class="project-card">
-                    <div class="project-header">
-                        <i class="fas fa-plane"></i>
-                        <h3>Aircraft Predictive Maintenance</h3>
-                    </div>
-                    <div class="project-content">
-                        <p class="project-date">March 2022 - July 2022</p>
-                        <p>Developed machine learning tool for remaining useful life (RUL) predictions for turbofan engines. Applied prognostics for predictive maintenance in aviation.</p>
-                    </div>
-                </div>
+    <!-- ================= Awards ================= -->
+    <section class="wrap" id="awards">
+      <h3>Awards, Leadership & Service</h3>
+      <ul class="awards">
+        <li><strong>Best Teaching Assistant Award</strong>, IIT Mandi</li>
+        <li><strong>Best Outgoing Student Award</strong>, Ramaiah Institute of Technology, 2023</li>
+        <li><strong>Best Paper Award</strong>, International Astronautical Congress (IAC), Paris, 2022</li>
+        <li><strong>Mentor</strong>, Drone and Robotics Bootcamp Group, IIT Mandi (Jun 2025 – Aug 2026): hands-on sessions on drone assembly, ROS and robot control for hundreds of students</li>
+        <li><strong>Evaluator</strong>, ZenTej Season 3 Hackathon, IIT Mandi (Oct 2025): assessed prototypes in a 24-hour sprint on soundness, innovation and feasibility</li>
+        <li><strong>Student Coordinator</strong>, Aerodynamics and Structures, STARDUST RIT Rocketry, 2020 – 2022</li>
+        <li><strong>NSS Coordinator</strong>, organized blood donation camps</li>
+        <li>Paper presenter at <strong>ICC-11 2025</strong>, <strong>ICCAS 2025</strong> (Korea) and <strong>IEEE ICCCNT 2025</strong>; participant at <strong>ROSCon India 2025</strong></li>
+      </ul>
+    </section>
+  </main>
 
-                <div class="project-card">
-                    <div class="project-header">
-                        <i class="fas fa-rocket"></i>
-                        <h3>Venus Mission Propulsion</h3>
-                    </div>
-                    <div class="project-content">
-                        <p class="project-date">October 2020</p>
-                        <p>Designed propulsion system for interplanetary mission to Venus at SSERD. Selected efficient propellant (UDMH-N204) for high specific impulse performance.</p>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-header">
-                        <i class="fas fa-satellite"></i>
-                        <h3>Spacecraft Vibration Isolation</h3>
-                    </div>
-                    <div class="project-content">
-                        <p class="project-date">December 2021 - December 2022</p>
-                        <p>Modeling, design, and analysis of Vibration Isolation System at ISRO. Conducted FEA and performance tests across 20-2000 Hz frequency range.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Skills Section -->
-        <section id="skills">
-            <h2 class="section-title">Technical Skills</h2>
-            <p class="section-subtitle">Expertise across robotics, AI, and mechanical design</p>
-            <div class="skills-container">
-                <div class="skill-category">
-                    <h3><i class="fas fa-robot"></i> Robotics & AI</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">ROS</span>
-                        <span class="skill-tag">Gazebo</span>
-                        <span class="skill-tag">PyBullet</span>
-                        <span class="skill-tag">Isaac Gym</span>
-                        <span class="skill-tag">Reinforcement Learning</span>
-                        <span class="skill-tag">Control Systems</span>
-                        <span class="skill-tag">Aerial Robotics</span>
-                    </div>
-                </div>
-
-                <div class="skill-category">
-                    <h3><i class="fas fa-code"></i> Programming</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Python</span>
-                        <span class="skill-tag">C Programming</span>
-                        <span class="skill-tag">MATLAB</span>
-                        <span class="skill-tag">SQL</span>
-                        <span class="skill-tag">SIMULINK</span>
-                    </div>
-                </div>
-
-                <div class="skill-category">
-                    <h3><i class="fas fa-drafting-compass"></i> CAD & Analysis</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">UG NX</span>
-                        <span class="skill-tag">SolidWorks</span>
-                        <span class="skill-tag">ANSYS</span>
-                        <span class="skill-tag">NASTRAN</span>
-                        <span class="skill-tag">FEA</span>
-                        <span class="skill-tag">DFMEA</span>
-                    </div>
-                </div>
-
-                <div class="skill-category">
-                    <h3><i class="fas fa-cogs"></i> Engineering</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Manufacturing Technology</span>
-                        <span class="skill-tag">Material Science</span>
-                        <span class="skill-tag">Project Management</span>
-                        <span class="skill-tag">R&D</span>
-                        <span class="skill-tag">Technical Documentation</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Education Section -->
-        <section id="education">
-            <h2 class="section-title">Education</h2>
-            <p class="section-subtitle">Academic excellence in engineering and robotics</p>
-            <div class="education-grid">
-                <div class="education-card">
-                    <h3>M.Tech(R) in AI & Robotics</h3>
-                    <p class="institution">Indian Institute of Technology, Mandi</p>
-                    <p class="duration">March 2024 - December 2026</p>
-                    <p class="cgpa">CGPA: 8.57/10</p>
-                    <p>Focus: Design, Simulation, and Development of Bipedal Robots</p>
-                </div>
-
-                <div class="education-card">
-                    <h3>B.E. in Mechanical Engineering</h3>
-                    <p class="institution">Ramaiah Institute of Technology, Bengaluru</p>
-                    <p class="duration">August 2019 - June 2023</p>
-                    <p class="cgpa">CGPA: 8.90/10</p>
-                    <p><strong>🏆 Best Outgoing Student Award (2019-2023)</strong></p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact Section -->
-        <section id="contact">
-            <h2 class="section-title">Get In Touch</h2>
-            <p class="section-subtitle">Let's collaborate on robotics and AI projects</p>
-            <div class="contact-grid">
-                <div class="contact-card">
-                    <i class="fas fa-envelope"></i>
-                    <h3>Email</h3>
-                    <a href="mailto:sahoojagannathprasad@gmail.com">sahoojagannathprasad@gmail.com</a>
-                </div>
-
-                <div class="contact-card">
-                    <i class="fab fa-linkedin"></i>
-                    <h3>LinkedIn</h3>
-                    <a href="https://www.linkedin.com/in/jagannath-prasad-sahoo-1b4977b8/" target="_blank">Connect with me</a>
-                </div>
-
-                <div class="contact-card">
-                    <i class="fab fa-github"></i>
-                    <h3>GitHub</h3>
-                    <a href="https://github.com/Jaggu2606" target="_blank">@Jaggu2606</a>
-                </div>
-
-                <div class="contact-card">
-                    <i class="fas fa-phone"></i>
-                    <h3>Phone</h3>
-                    <a href="tel:+917665621095">+91-7665621095</a>
-                </div>
-
-                <div class="contact-card">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <h3>Location</h3>
-                    <p>IIT Mandi, Kamand<br>Himachal Pradesh, India</p>
-                </div>
-            </div>
-        </section>
-    </div>
-
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2025 Jagannath Prasad Sahoo. All rights reserved.</p>
-        <p style="margin-top: 0.5rem; font-size: 0.9rem;">Bridging Classical Control and Modern AI in Robotics</p>
-    </footer>
-
-    <script>
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        // Add active state to navigation on scroll
-        window.addEventListener('scroll', () => {
-            let current = '';
-            const sections = document.querySelectorAll('section');
-            
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                if (pageYOffset >= (sectionTop - 200)) {
-                    current = section.getAttribute('id');
-                }
-            });
-
-            document.querySelectorAll('.nav-links a').forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href').slice(1) === current) {
-                    link.classList.add('active');
-                }
-            });
-        });
-
-        // Add animation on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -100px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-
-        // Observe all cards and timeline items
-        document.querySelectorAll('.project-card, .publication-card, .timeline-item, .education-card, .contact-card').forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(20px)';
-            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            observer.observe(el);
-        });
-    </script>
+  <footer class="site-footer">
+    <p>© <span id="year">2026</span> Jagannath Prasad Sahoo · <a href="mailto:sahoojagannathprasad@gmail.com">sahoojagannathprasad@gmail.com</a></p>
+  </footer>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>

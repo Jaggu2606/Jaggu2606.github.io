@@ -5,3 +5,4 @@ Generation 2/
 *.mp4
 *.MP4
 IMG_*.jpg
+!media/*.mp4

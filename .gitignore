@@ -11,3 +11,12 @@ WhatsApp*
 !media/*
 ICHR*.mp4
 Screenshot*.png
+# raw source files (only processed copies in media/ are published)
+*.jpg
+*.png
+*.pdf
+*.pptx
+*.mkv
+*.mov
+*.MOV
+!media/**

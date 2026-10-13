@@ -107,11 +107,6 @@
       <h3>News & Highlights</h3>
       <ol class="news">
         <li class="news-item">
-          <div class="news-meta"><span class="news-date">2026</span><span class="news-tag tag-paper">Paper</span></div>
-          <h4>AdaTerrainDiff submitted to IEEE-RAS Humanoids 2026</h4>
-          <p>“AdaTerrainDiff: Terrain-Conditioned Adaptive Action Refinement for Unified Bipedal Locomotion”, a terrain-adaptive diffusion policy for walking on flat ground, slopes, rough terrain and stairs, deployed on our 10-DOF biped.</p>
-        </li>
-        <li class="news-item">
           <div class="news-meta"><span class="news-date">Sep 2026</span><span class="news-tag tag-role">Degree</span></div>
           <h4>M.Tech (Research) in AI and Robotics awarded by IIT Mandi</h4>
           <p>Degree awarded on 02 September 2026 (CGPA 8.57/10). Thesis: “Design, Development and Experimental Validation of a Bipedal Robot for Adaptive Locomotion and Navigation”, supervised by Dr. Amit Shukla.</p>
@@ -159,6 +154,16 @@
             <p>“From classical control to reinforcement learning: trends in bipedal robot locomotion.”</p>
           </li>
           <li class="news-item">
+            <div class="news-meta"><span class="news-date">May 2025</span><span class="news-tag tag-research">Hackathon</span></div>
+            <h4>TongueTales at the AITech Hackathon, IIT Mandi</h4>
+            <p>Our team built an AI pipeline that analyses tongue images (coating, cracks, papillae, redness) to give explainable health insights. The work grew into the TongueSight paper at ICVGIP.</p>
+          </li>
+          <li class="news-item">
+            <div class="news-meta"><span class="news-date">2023</span><span class="news-tag tag-award">Award</span></div>
+            <h4>Best Outgoing Student Award, Ramaiah Institute of Technology</h4>
+            <p>Awarded for excellence in academics and co-curricular activities on graduating with a B.E. in Mechanical Engineering (CGPA 8.90/10).</p>
+          </li>
+          <li class="news-item">
             <div class="news-meta"><span class="news-date">2022</span><span class="news-tag tag-award">Award</span></div>
             <h4>Best Paper Award at the 73rd International Astronautical Congress, Paris</h4>
           </li>
@@ -178,14 +183,11 @@
       <h3>Robotics Projects</h3>
 
       <!-- AdaTerrainDiff (Humanoids 2026) -->
-      <article class="card project-card">
+      <article class="card project-card single">
         <div class="project-media">
           <video autoplay loop muted playsinline preload="metadata" poster="media/adaterrain_terrains.jpg">
             <source src="media/adaterrain_terrains.mp4" type="video/mp4">
           </video>
-        </div>
-        <div class="project-figure">
-          <img src="media/adaterrain_method.jpg" alt="Traditional diffusion locomotion control compared with AdaTerrainDiff's adaptive steps and disentangled terrain latent" loading="lazy" decoding="async">
         </div>
         <div class="project-body">
           <h4>AdaTerrainDiff: Terrain-Conditioned Adaptive Action Refinement for Unified Bipedal Locomotion</h4>
@@ -208,8 +210,8 @@
           </video>
         </div>
         <div class="project-figure">
-          <video autoplay loop muted playsinline preload="metadata" poster="media/gen2_stairs.jpg">
-            <source src="media/gen2_stairs.mp4" type="video/mp4">
+          <video autoplay loop muted playsinline preload="metadata" poster="media/push_recovery.jpg">
+            <source src="media/push_recovery.mp4" type="video/mp4">
           </video>
         </div>
         <div class="project-body">
@@ -219,9 +221,9 @@
             Industrial inspection sites such as manufacturing floors, power plants and refineries have ramps, grated flooring and irregular ground, and people work close by. Most humanoid locomotion work is validated on idealized flat surfaces. This project builds a <strong>10-DOF biped</strong>, based on the <strong>Berkeley Humanoid Lite</strong> URDF, that is meant for those environments.
           </p>
           <p>
-            A reinforcement learning architecture with <strong>structured terrain encoding</strong> gives stable walking on flat ground, stair ascent and descent, and uneven terrain. Policies are trained in physics simulation with <strong>domain randomization</strong> for sim-to-real transfer. A low-level <strong>safety control loop</strong> enforces stability margins and joint-level compliance, so the robot stays predictable and interruptible around human inspectors. The hardware work included custom BLDC actuator control and PID tuning, a range-of-motion study against human joint limits, and gantry-supported sim-to-real trials.
+            A reinforcement learning architecture with <strong>structured terrain encoding</strong> gives stable walking on flat ground, stair ascent and descent, and uneven terrain. Policies are trained in physics simulation with <strong>domain randomization</strong> for sim-to-real transfer. A low-level <strong>safety control loop</strong> enforces stability margins and joint-level compliance, so the robot stays predictable and interruptible around human inspectors. The hardware work included custom BLDC actuator control and PID tuning, a range-of-motion study against human joint limits, and gantry-supported sim-to-real trials, including <strong>push-recovery tests</strong> where the robot is shoved mid-stance and has to regain balance.
           </p>
-          <ul class="tags"><li>Humanoid locomotion</li><li>Terrain-aware RL</li><li>Shared autonomy</li><li>Domain randomization</li><li>BLDC actuators</li></ul>
+          <ul class="tags"><li>Humanoid locomotion</li><li>Terrain-aware RL</li><li>Shared autonomy</li><li>Domain randomization</li><li>Push recovery</li><li>BLDC actuators</li></ul>
         </div>
       </article>
 
@@ -295,15 +297,20 @@
         </div>
       </article>
 
-      <!-- Text-only cards (no media yet) -->
-      <div class="grid">
-        <article class="card">
+      <!-- Buried cable tracing -->
+      <article class="card project-card single">
+        <div class="project-media">
+          <video autoplay loop muted playsinline preload="metadata" poster="media/cable_sim.jpg">
+            <source src="media/cable_sim.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="project-body">
           <h4>Autonomous Buried Power Cable Tracing</h4>
-          <p class="project-date">Jan 2025 – Jun 2026</p>
-          <p>A ground robot that follows buried power cables using <strong>electromagnetic locator feedback</strong>, with goal-free obstacle avoidance and <strong>GPS mapping</strong> of the cable route. It is related to an autonomous, vision-based pipe inspection system I led as Project Associate.</p>
-          <ul class="tags"><li>Field robotics</li><li>Sensor fusion</li><li>GPS mapping</li></ul>
-        </article>
-      </div>
+          <p class="project-date">Jan 2025 – Jun 2026 · Project Associate, IIT Mandi</p>
+          <p>A ground robot that follows buried power cables using <strong>electromagnetic locator feedback</strong>. It steers to keep the signal strong, avoids obstacles without a predefined goal, and builds a <strong>GPS map</strong> of the cable route as it drives. The video shows the ROS/Gazebo simulation of the AGV tracing a buried cable path. The work is related to an autonomous, vision-based pipe inspection system I led as Project Associate.</p>
+          <ul class="tags"><li>Field robotics</li><li>ROS / Gazebo</li><li>Sensor fusion</li><li>GPS mapping</li></ul>
+        </div>
+      </article>
 
       <!-- Smaller projects -->
       <div class="small-projects-grid">
@@ -315,11 +322,15 @@
           <p>Characterization and PID tuning of the BLDC joint actuators that drive the 2nd-generation biped.</p>
         </article>
         <article class="card mini-card">
-          <video autoplay loop muted playsinline preload="metadata" poster="media/hrl_sim.jpg">
-            <source src="media/hrl_sim.mp4" type="video/mp4">
+          <video autoplay loop muted playsinline preload="metadata" poster="media/icc_skills.jpg">
+            <source src="media/icc_skills.mp4" type="video/mp4">
           </video>
-          <h5>Biped Navigation in PyBullet</h5>
-          <p>Waypoint-following and obstacle avoidance in cluttered simulated environments with 5–20 obstacles.</p>
+          <h5>Multi-Skill Locomotion (ICC-11)</h5>
+          <p>SAC, TD3 and DDPG compared on push recovery, walking, uneven terrain and stair descent with waypoint-based reward shaping.</p>
+        </article>
+        <article class="card mini-card">
+          <h5>TongueTales / TongueSight</h5>
+          <p>AI tongue-image analysis (coating, cracks, papillae, redness) with explainable scores. Built at the AITech Hackathon, IIT Mandi (2025), then published at ICVGIP.</p>
         </article>
         <article class="card mini-card">
           <h5>MPPF: Mobile Probe Potential Field</h5>
@@ -512,6 +523,9 @@
         <figure data-cat="events"><img src="media/gal_hive.jpg" alt="Jagannath with his poster at HIVE" loading="lazy" decoding="async"><figcaption>Poster presentation at HIVE</figcaption></figure>
         <figure data-cat="robots" class="wide"><video autoplay loop muted playsinline preload="metadata" poster="media/gal_isaac.jpg"><source src="media/gal_isaac.mp4" type="video/mp4"></video><figcaption>Training the 2nd-generation biped with massively parallel RL in Isaac Gym</figcaption></figure>
         <figure data-cat="robots" class="wide"><video autoplay loop muted playsinline preload="metadata" poster="media/adaterrain_sim2real.jpg"><source src="media/adaterrain_sim2real.mp4" type="video/mp4"></video><figcaption>AdaTerrainDiff sim-to-real transfer on the 10-DOF biped</figcaption></figure>
+        <figure data-cat="events" class="wide"><img src="media/gal_khatib_visit.jpg" alt="Prof. Oussama Khatib with members of the Drone Lab, IIT Mandi" loading="lazy" decoding="async"><figcaption>Prof. Oussama Khatib's visit to the Drone Lab, IIT Mandi</figcaption></figure>
+        <figure data-cat="robots"><video autoplay loop muted playsinline preload="metadata" poster="media/push_recovery.jpg"><source src="media/push_recovery.mp4" type="video/mp4"></video><figcaption>Push-recovery tests on the 2nd-generation biped</figcaption></figure>
+        <figure data-cat="events" class="wide"><img src="media/gal_farewell.jpg" alt="Farewell gathering with labmates" loading="lazy" decoding="async"><figcaption>My farewell, IIT Mandi</figcaption></figure>
         <figure data-cat="events" class="wide"><img src="media/gal_dronelab.jpg" alt="Group photo at the Drone Lab, Centre for AI and Robotics, IIT Mandi" loading="lazy" decoding="async"><figcaption>Drone Lab, Centre for AI & Robotics, IIT Mandi</figcaption></figure>
         <figure data-cat="robots"><img src="media/biped_gen1_photo.jpg" alt="First-generation biped robot" loading="lazy" decoding="async"><figcaption>1st-generation biped, designed and built at IIT Mandi</figcaption></figure>
         <figure data-cat="robots"><img src="media/biped_gen2_lab.jpg" alt="Second-generation 10-DOF biped in the lab" loading="lazy" decoding="async"><figcaption>2nd-generation 10-DOF biped in the lab</figcaption></figure>

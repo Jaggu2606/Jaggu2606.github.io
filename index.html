@@ -107,6 +107,11 @@
       <h3>News & Highlights</h3>
       <ol class="news">
         <li class="news-item">
+          <div class="news-meta"><span class="news-date">2026</span><span class="news-tag tag-paper">Paper</span></div>
+          <h4>AdaTerrainDiff submitted to IEEE-RAS Humanoids 2026</h4>
+          <p>“AdaTerrainDiff: Terrain-Conditioned Adaptive Action Refinement for Unified Bipedal Locomotion”, a terrain-adaptive diffusion policy for walking on flat ground, slopes, rough terrain and stairs, deployed on our 10-DOF biped.</p>
+        </li>
+        <li class="news-item">
           <div class="news-meta"><span class="news-date">Sep 2026</span><span class="news-tag tag-role">Degree</span></div>
           <h4>M.Tech (Research) in AI and Robotics awarded by IIT Mandi</h4>
           <p>Degree awarded on 02 September 2026 (CGPA 8.57/10). Thesis: “Design, Development and Experimental Validation of a Bipedal Robot for Adaptive Locomotion and Navigation”, supervised by Dr. Amit Shukla.</p>
@@ -171,6 +176,29 @@
     <!-- ================= Robotics projects ================= -->
     <section class="wrap" id="projects">
       <h3>Robotics Projects</h3>
+
+      <!-- AdaTerrainDiff (Humanoids 2026) -->
+      <article class="card project-card">
+        <div class="project-media">
+          <video autoplay loop muted playsinline preload="metadata" poster="media/adaterrain_terrains.jpg">
+            <source src="media/adaterrain_terrains.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="project-figure">
+          <img src="media/adaterrain_method.jpg" alt="Traditional diffusion locomotion control compared with AdaTerrainDiff's adaptive steps and disentangled terrain latent" loading="lazy" decoding="async">
+        </div>
+        <div class="project-body">
+          <h4>AdaTerrainDiff: Terrain-Conditioned Adaptive Action Refinement for Unified Bipedal Locomotion</h4>
+          <p class="project-date">IEEE-RAS Humanoids 2026 submission · 2nd-generation biped</p>
+          <p>
+            Diffusion-based locomotion controllers such as BiRoDiff and DiffuseLoco use one mixed latent and a fixed number of denoising steps, so they treat every terrain the same. <strong>AdaTerrainDiff</strong> splits the encoder into a <strong>128-D state latent</strong> and a <strong>16-D terrain latent</strong> built from the height map. The terrain latent then sets the action generation: <strong>5 denoising steps on flat ground and up to 10 on stairs</strong>, with stochasticity scaled to the terrain. An <strong>x<sub>0</sub>-prediction denoiser</strong> stays stable with only a few steps, and the policy is trained with online PPO.
+          </p>
+          <p>
+            One policy walks on flat ground, slopes, rough terrain, discrete obstacles and stairs. Averaged over all terrains it reaches <strong>81.0% success</strong>, versus 78.0% for BiRoDiff and 32.1% for DiffuseLoco. The biggest gains are on discrete terrain (+12 points) and steep slopes (+5.2 points). On the 10-DOF hardware biped, sim-to-real trials completed <strong>98.3% of each 60-second episode</strong>, with cost of transport within 13% of simulation.
+          </p>
+          <ul class="tags"><li>Diffusion policy</li><li>Terrain-aware RL</li><li>PPO</li><li>Isaac Gym</li><li>Sim-to-real</li></ul>
+        </div>
+      </article>
 
       <!-- 2nd-generation biped -->
       <article class="card project-card tall">
@@ -338,6 +366,7 @@
     <section class="wrap" id="publications">
       <h3>Publications</h3>
       <ul class="pubs">
+        <li><span><strong>Sahoo, J. P.</strong>, et al.</span> “AdaTerrainDiff: Terrain-conditioned adaptive action refinement for unified bipedal locomotion.” <em>Submitted to IEEE-RAS International Conference on Humanoid Robots (Humanoids) 2026</em>.</li>
         <li><span>Datta, S., <strong>Sahoo, J. P.</strong>, Surya Prakash S. K., and Shukla, A.</span> “Hardware model-mediated teleoperation for a force-blind low-cost manipulator with a single-scalar contact sensor.” <em>IEEE ICARCV 2026, Halong Bay, Vietnam</em>. Accepted, contributed oral.</li>
         <li><span>Prajapati, D., Kumar, P., Surya Prakash S. K., Mehra, A., Rana, A., <strong>Sahoo, J. P.</strong>, Reddy, T. J., and Shukla, A.</span> “Reference-coupled heterogeneous multi-agent coordination with real-time adaptive perimeter field navigation.” <em>12th IEEE ICARA 2026</em>, pp. 307–312.</li>
         <li><span>Sharma, V., <strong>Sahoo, J. P.</strong>, Shukla, A., Ameta, D., Shorey, J., Reddy, S., Shewale, P. P., and Sharma, S.</span> “TongueSight: AI-powered tongue analysis for digitizing traditional medicine diagnostics.” <em>16th ICVGIP</em>, 2026, Article 22, pp. 1–7.</li>
@@ -482,6 +511,7 @@
         <figure data-cat="events"><img src="media/gal_icc.jpg" alt="Jagannath at the Indian Control Conference standee" loading="lazy" decoding="async"><figcaption>Paper presentation at the Indian Control Conference (ICC)</figcaption></figure>
         <figure data-cat="events"><img src="media/gal_hive.jpg" alt="Jagannath with his poster at HIVE" loading="lazy" decoding="async"><figcaption>Poster presentation at HIVE</figcaption></figure>
         <figure data-cat="robots" class="wide"><video autoplay loop muted playsinline preload="metadata" poster="media/gal_isaac.jpg"><source src="media/gal_isaac.mp4" type="video/mp4"></video><figcaption>Training the 2nd-generation biped with massively parallel RL in Isaac Gym</figcaption></figure>
+        <figure data-cat="robots" class="wide"><video autoplay loop muted playsinline preload="metadata" poster="media/adaterrain_sim2real.jpg"><source src="media/adaterrain_sim2real.mp4" type="video/mp4"></video><figcaption>AdaTerrainDiff sim-to-real transfer on the 10-DOF biped</figcaption></figure>
         <figure data-cat="events" class="wide"><img src="media/gal_dronelab.jpg" alt="Group photo at the Drone Lab, Centre for AI and Robotics, IIT Mandi" loading="lazy" decoding="async"><figcaption>Drone Lab, Centre for AI & Robotics, IIT Mandi</figcaption></figure>
         <figure data-cat="robots"><img src="media/biped_gen1_photo.jpg" alt="First-generation biped robot" loading="lazy" decoding="async"><figcaption>1st-generation biped, designed and built at IIT Mandi</figcaption></figure>
         <figure data-cat="robots"><img src="media/biped_gen2_lab.jpg" alt="Second-generation 10-DOF biped in the lab" loading="lazy" decoding="async"><figcaption>2nd-generation 10-DOF biped in the lab</figcaption></figure>

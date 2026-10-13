@@ -9,3 +9,5 @@ IMG_*.jpg
 WhatsApp*
 *.jpeg
 !media/*
+ICHR*.mp4
+Screenshot*.png

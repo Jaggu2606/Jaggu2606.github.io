@@ -256,6 +256,8 @@ ul{list-style-type:disc;margin-left:20px;padding-left:0}
 
 /* ---------- Publications ---------- */
 .pubs{margin-top:18px}
+.pubs-note{color:var(--muted);margin-top:6px}
+.pubs-note a{color:var(--accent)}
 .pubs li{margin-bottom:14px;color:var(--muted)}
 .pubs li > span:first-child{color:var(--text)}
 .pubs strong{color:var(--accent)}

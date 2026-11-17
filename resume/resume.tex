@@ -13,6 +13,7 @@
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
 \usepackage{tabularx}
+\usepackage{needspace}
 
 \pagestyle{fancy}
 \fancyhf{}
@@ -23,7 +24,7 @@
 \addtolength{\evensidemargin}{-0.45in}
 \addtolength{\textwidth}{0.9in}
 \addtolength{\topmargin}{-0.6in}
-\addtolength{\textheight}{1.15in}
+\addtolength{\textheight}{1.2in}
 
 \urlstyle{same}
 \raggedbottom
@@ -70,9 +71,17 @@
         \courses{Robot Kinematics, Dynamics and Control, Mechatronics, Robot Programming, Modeling and Simulation, Principles of Robot Autonomy, Deep Learning}
   \entry{Ramaiah Institute of Technology,}{Bengaluru, India}
         {Bachelor of Engineering -- Mechanical Engineering; CGPA: 8.90 (Scale 10)}{Aug 2019 -- Jun 2023}
-  \item[] \courses{Robotics, Nanotechnology, Machine Design, Kinematics and Dynamics of Machines, Manufacturing Processes, CAD/CAM}\\[-1pt]
-        {\small Best Outgoing Student Award for academics and co-curricular activities}
+  \item[] \courses{Robotics, Nanotechnology, Machine Design, Kinematics and Dynamics of Machines, Manufacturing Processes, CAD/CAM}\
 \end{entries}
+
+%-----------SKILLS-----------------
+\section{Skills Summary}
+\begin{bullets}
+  \item \textbf{Languages}: Python, C, C++, MATLAB
+  \item \textbf{AI \& Learning}: RL (PPO, SAC, TD3, TD7), Diffusion Policies, Deep Learning, Computer Vision (YOLO), VLMs
+  \item \textbf{Robotics \& Simulation}: ROS, ROS2, Isaac Gym, MuJoCo, PyBullet, Gazebo, motion planning, kinematics and dynamics
+  \item \textbf{Design \& Tools}: SolidWorks, UG NX, ANSYS (FEA), NASTRAN, DFMEA, DFM, Git, Linux
+\end{bullets}
 
 %-----------RESEARCH-----------------
 \section{Research Experience -- Robotics}
@@ -92,7 +101,7 @@
     \item Low-level safety loop for stability margins and joint compliance; custom \textbf{BLDC actuator} control and PID tuning; gantry-supported sim-to-real and \textbf{push-recovery} trials.
   \end{bullets}
 
-  \project{Multi-Skill Bipedal Robot with Learning-Based Control (M.Tech Thesis)}{Mar 2024 -- Sep 2026}
+  \project{Multi-Skill Bipedal Robot with Learning-Based Control}{Mar 2024 -- Sep 2026}
           {Under \textbf{Dr. Amit Shukla}, Indian Institute of Technology Mandi}
   \begin{bullets}
     \item Designed a small-scale biped from scratch: mechanical design, kinematic modeling and stability verification.
@@ -120,6 +129,7 @@
 \end{entries}
 
 %-----------PUBLICATIONS-----------------
+\needspace{6\baselineskip}
 \section{Publications}
 \begin{bullets}
   \item Pant, K. R., \me, Mallela, S., Surya Prakash S. K., Shukla, A., \textbf{Deep Reinforcement Learning for Vision-Based UAV Tracking by an Autonomous Ground Vehicle}, \textit{Indian Control Conference (ICC) 2026} (Accepted)
@@ -127,16 +137,16 @@
   \item Surya Prakash S. K., Gupta, A., Suraj S. K., Anudeep D., Karthik T., Majji, S. T., \me, Datta, S., Shukla, A., \textbf{Dual-Arm Cooperative Manipulation through Shared Vision}, \textit{Indian Control Conference (ICC) 2026} (Accepted)
   \item Datta, S., \me, Surya Prakash S. K., Shukla, A., \textbf{Hardware Model-Mediated Teleoperation for a Force-Blind Low-Cost Manipulator with a Single-Scalar Contact Sensor}, \textit{IEEE ICARCV 2026, Halong Bay, Vietnam} (Accepted, contributed oral)
   \item Pant, K. R., Vohra, M., \me, Gupta, A., Karunamurthy, J. V., Shukla, A., \textbf{Autonomous Buried Power Cable Tracing Using Electromagnetic Locator Feedback, Goal-Free Obstacle Avoidance, and GPS Mapping}, \textit{NEECON 2026} (Accepted)
-  \item Prajapati, D., Kumar, P., Surya Prakash S. K., Mehra, A., Rana, A., \me, Reddy, T. J., Shukla, A., \textbf{Reference-Coupled Heterogeneous Multi-Agent Coordination with Real-Time Adaptive Perimeter Field Navigation}, \textit{12th IEEE ICARA 2026}, pp. 307--312
-  \item Sharma, V., \me, Shukla, A., et al., \textbf{TongueSight: AI-Powered Tongue Analysis for Digitizing Traditional Medicine Diagnostics}, \textit{16th ICVGIP 2026}, Article 22
-  \item \me, et al., \textbf{Learning Multi-Skill Locomotion in Underactuated Biped: A Waypoint-Based Reward Shaping Approach}, \textit{Eleventh Indian Control Conference (ICC-11) 2025}
-  \item \me, et al., \textbf{Design, Kinematic Modeling, and Stability Verification of a Small-Scale Biped Robot}, \textit{ICCAS 2025, Korea}
-  \item Surya Prakash S. K., Prajapati, D. K., Narula, B., \me, Shukla, A., \textbf{Kinematics-Based Real-Time Distance Monitoring for Safe Multi-Arm Robot Operations}, \textit{ICCAS 2025, Incheon, Korea}, pp. 1491--1497
+  \item Prajapati, D., Kumar, P., Surya Prakash S. K., Mehra, A., Rana, A., \me, Reddy, T. J., Shukla, A., \textbf{Reference-Coupled Heterogeneous Multi-Agent Coordination with Real-Time Adaptive Perimeter Field Navigation}, \textit{12th IEEE ICARA 2026}, pp. 307--312 \href{https://doi.org/10.1109/icara69401.2026.11480352}{[Paper]}
+  \item Sharma, V., \me, Shukla, A., et al., \textbf{TongueSight: AI-Powered Tongue Analysis for Digitizing Traditional Medicine Diagnostics}, \textit{16th ICVGIP 2026}, Article 22 \href{https://doi.org/10.1145/3774521.3774545}{[Paper]}
+  \item \me, et al., \textbf{Learning Multi-Skill Locomotion in Underactuated Biped: A Waypoint-Based Reward Shaping Approach}, \textit{Eleventh Indian Control Conference (ICC-11) 2025} \href{https://doi.org/10.1109/icc69100.2025.11372287}{[Paper]}
+  \item \me, et al., \textbf{Design, Kinematic Modeling, and Stability Verification of a Small-Scale Biped Robot}, \textit{ICCAS 2025, Korea} \href{https://doi.org/10.23919/iccas66577.2025.11301351}{[Paper]}
+  \item Surya Prakash S. K., Prajapati, D. K., Narula, B., \me, Shukla, A., \textbf{Kinematics-Based Real-Time Distance Monitoring for Safe Multi-Arm Robot Operations}, \textit{ICCAS 2025, Incheon, Korea}, pp. 1491--1497 \href{https://doi.org/10.23919/iccas66577.2025.11301286}{[Paper]}
   \item \me, et al., \textbf{From Classical Control to Reinforcement Learning: Trends in Bipedal Robot Locomotion}, \textit{IEEE ICCCNT 2025}
-  \item Madhu Kumar, T. M., et al., \me, \textbf{Polyethene Composites for X-Band EMI Shielding Using MWCNT, Graphene Nanoplatelets and MgFe$_2$O$_4$ Nanoparticles}, \textit{Functional Composites and Structures}, 7(3), 2025
-  \item \me, et al., \textbf{A Novel Approach for Payload Design to Streamline Deep Space Missions: Molecular Nanoscience}, \textit{73rd International Astronautical Congress (IAC), Paris}, 2022 \textbf{(Best Paper Award)}
-  \item \me, et al., \textbf{Design of Propulsion System for CubeSat: N$_2$O and C$_2$H$_4$ as Green Bipropellant}, \textit{Journal of Aerospace Sciences and Technologies}, 74(2), 2022
-  \item \me, et al., \textbf{Analysis and Design of a Propulsion System for an Interplanetary Mission to Venus}, \textit{IRJET}, 9(2), 2022
+  \item Madhu Kumar, T. M., et al., \me, \textbf{Polyethene Composites for X-Band EMI Shielding Using MWCNT, Graphene Nanoplatelets and MgFe$_2$O$_4$ Nanoparticles}, \textit{Functional Composites and Structures}, 7(3), 2025 \href{https://doi.org/10.1088/2631-6331/adf68a}{[Paper]}
+  \item \me, et al., \textbf{A Novel Approach for Payload Design to Streamline Deep Space Missions: Molecular Nanoscience}, \textit{73rd International Astronautical Congress (IAC), Paris}, 2022 \textbf{(Best Paper Award)} \href{https://iafastro.directory/iac/archive/browse/IAC-22/C2/8/70075/}{[Paper]}
+  \item \me, et al., \textbf{Experimental Evaluation and Design of Propulsion System for CubeSat: N$_2$O and C$_2$H$_4$ as Green Bipropellant}, \textit{Journal of Aerospace Sciences and Technologies}, 74(2), 2022 \href{https://doi.org/10.61653/joast.v74i2.2022.32}{[Paper]}
+  \item \me, et al., \textbf{Analysis and Design of a Propulsion System for an Interplanetary Mission to Venus}, \textit{IRJET}, 9(2), 2022 \href{https://www.irjet.net/archives/V9/i2/IRJET-V9I257.pdf}{[Paper]}
 \end{bullets}
 
 %-----------EXPERIENCE-----------------
@@ -169,21 +179,12 @@
   \end{bullets}
 \end{entries}
 
-%-----------SKILLS-----------------
-\section{Skills Summary}
-\begin{bullets}
-  \item \textbf{Languages}: Python, C, C++, MATLAB
-  \item \textbf{AI \& Learning}: Reinforcement Learning (PPO, SAC, TD3, TD7), Diffusion Policies, Deep Learning, Computer Vision (YOLO), VLMs
-  \item \textbf{Robotics \& Simulation}: ROS, ROS2, Isaac Gym, MuJoCo, PyBullet, Gazebo, motion planning, kinematics and dynamics
-  \item \textbf{Design \& Tools}: SolidWorks, UG NX, ANSYS (FEA), NASTRAN, DFMEA, DFM, Git, Linux
-\end{bullets}
-
 %-----------AWARDS-----------------
 \section{Awards, Leadership and Service}
 \begin{bullets}
   \item \textbf{Outstanding Teaching Assistant Award}, IIT Mandi (2026); \textbf{Best Outgoing Student Award}, Ramaiah Institute of Technology (2023); \textbf{Best Paper Award}, 73rd IAC, Paris (2022)
   \item \textbf{Mentor}, Drone and Robotics Bootcamp, IIT Mandi (Jun 2025 -- Aug 2026): hands-on sessions on drone assembly, ROS and robot control for hundreds of students
-  \item \textbf{Evaluator}, ZenTej Season 3 Hackathon, IIT Mandi (2025); \textbf{Talks} at ICC-11, ICCAS 2025 (Korea) and IEEE ICCCNT 2025; ROSCon India 2025
+  \item \textbf{Evaluator}, ZenTej Season 3 Hackathon, IIT Mandi (2025); \textbf{Talks} at ICC-11, ICCAS 2025 and IEEE ICCCNT 2025
   \item \textbf{Student Coordinator}, STARDUST RIT Rocketry (2020 -- 2022); \textbf{NSS Coordinator}, blood donation camps
 \end{bullets}
 

@@ -1,0 +1,190 @@
+%-------------------------------------------------------------------------------
+% Jagannath Prasad Sahoo -- Resume (single-column academic style)
+% Build: pdflatex resume.tex
+%-------------------------------------------------------------------------------
+\documentclass[letterpaper,10pt]{article}
+
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{tabularx}
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\addtolength{\oddsidemargin}{-0.45in}
+\addtolength{\evensidemargin}{-0.45in}
+\addtolength{\textwidth}{0.9in}
+\addtolength{\topmargin}{-0.6in}
+\addtolength{\textheight}{1.15in}
+
+\urlstyle{same}
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Section headings: small caps with a rule underneath
+\titleformat{\section}{\vspace{-5pt}\scshape\raggedright\large}{}{0em}{}[\color{black}\titlerule\vspace{-4pt}]
+
+% Helpers
+\newcommand{\entry}[4]{%
+  \item[]\begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+    \textbf{#1} & #2\\
+    #3 & \textit{\small #4}\\
+  \end{tabular*}\vspace{-3pt}}
+\newcommand{\project}[3]{%
+  \item[]\textbf{#1}\ \ {\small #2}\\
+  {\small #3}\vspace{-4pt}}
+\newcommand{\courses}[1]{{\scriptsize\textbf{\textit{Relevant Courses:}} \textit{#1}}}
+\newcommand{\me}{\textbf{Sahoo, J. P.}}
+
+\setlist[itemize]{leftmargin=0.16in, itemsep=0pt, topsep=1pt, parsep=0pt}
+\newenvironment{bullets}{\begin{itemize}[label=\textbullet]\small}{\end{itemize}\vspace{-2pt}}
+\newenvironment{entries}{\begin{itemize}[leftmargin=0in, label={}, itemsep=6pt]}{\end{itemize}}
+
+%-------------------------------------------------------------------------------
+\begin{document}
+
+%----------HEADING-----------------
+\begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+  {\LARGE\textbf{Jagannath Prasad Sahoo}} & Email: \href{mailto:sahoojagannathprasad@gmail.com}{sahoojagannathprasad@gmail.com}\\
+  M.Tech (Research) in AI and Robotics, IIT Mandi & Website: \href{https://jaggu2606.github.io/}{jaggu2606.github.io}\\
+  Robotics Engineer Intern (Surgical Robotics), AGIHF & Mobile: +91 76656-21096\\
+  Research Interests: Legged Locomotion, RL, Sim-to-Real & GitHub: \href{https://github.com/Jaggu2606}{github.com/Jaggu2606}\\
+  & \href{https://www.linkedin.com/in/jagannath-prasad-sahoo}{LinkedIn} $\cdot$ \href{https://scholar.google.com/citations?user=o8FPbNMAAAAJ&hl=en}{Google Scholar}\\
+\end{tabular*}
+
+%-----------EDUCATION-----------------
+\section{Education}
+\begin{entries}
+  \entry{Indian Institute of Technology Mandi,}{Himachal Pradesh, India}
+        {Master of Technology (Research) -- AI and Robotics; CGPA: 8.57 (Scale 10)}{Mar 2024 -- Sep 2026}
+  \item[] {\small Thesis: \textit{Design, Development and Experimental Validation of a Bipedal Robot for Adaptive Locomotion and Navigation}, supervised by \textbf{Dr. Amit Shukla}}\\[-1pt]
+        \courses{Robot Kinematics, Dynamics and Control, Mechatronics, Robot Programming, Modeling and Simulation, Principles of Robot Autonomy, Deep Learning}
+  \entry{Ramaiah Institute of Technology,}{Bengaluru, India}
+        {Bachelor of Engineering -- Mechanical Engineering; CGPA: 8.90 (Scale 10)}{Aug 2019 -- Jun 2023}
+  \item[] \courses{Robotics, Nanotechnology, Machine Design, Kinematics and Dynamics of Machines, Manufacturing Processes, CAD/CAM}\\[-1pt]
+        {\small Best Outgoing Student Award for academics and co-curricular activities}
+\end{entries}
+
+%-----------RESEARCH-----------------
+\section{Research Experience -- Robotics}
+\begin{entries}
+  \project{AdaTerrainDiff: Terrain-Conditioned Adaptive Action Refinement for Bipedal Locomotion}{2026 -- Ongoing}
+          {Under \textbf{Dr. Amit Shukla}, Indian Institute of Technology Mandi}
+  \begin{bullets}
+    \item Diffusion locomotion policy with a disentangled \textbf{128-D state latent} and \textbf{16-D terrain latent}; the terrain latent sets the number of denoising steps (5 on flat ground, up to 10 on stairs). Trained with online \textbf{PPO} and an $x_0$-prediction denoiser.
+    \item One policy for flat ground, slopes, rough terrain, discrete obstacles and stairs: \textbf{81.0\%} average success vs. 78.0\% (BiRoDiff) and 32.1\% (DiffuseLoco).
+    \item Sim-to-real on the 10-DOF biped completed \textbf{98.3\%} of each 60\,s episode, with cost of transport within 13\% of simulation.
+  \end{bullets}
+
+  \project{Terrain-Adaptive Locomotion for a 10-DOF Biped with Shared Autonomy}{2025 -- 2026}
+          {Under \textbf{Dr. Amit Shukla}, Indian Institute of Technology Mandi}
+  \begin{bullets}
+    \item Built a \textbf{10-DOF biped} (Berkeley Humanoid Lite based) for industrial inspection sites; RL with structured terrain encoding for flat ground, stairs and uneven terrain, trained in \textbf{Isaac Gym} with domain randomization.
+    \item Low-level safety loop for stability margins and joint compliance; custom \textbf{BLDC actuator} control and PID tuning; gantry-supported sim-to-real and \textbf{push-recovery} trials.
+  \end{bullets}
+
+  \project{Multi-Skill Bipedal Robot with Learning-Based Control (M.Tech Thesis)}{Mar 2024 -- Sep 2026}
+          {Under \textbf{Dr. Amit Shukla}, Indian Institute of Technology Mandi}
+  \begin{bullets}
+    \item Designed a small-scale biped from scratch: mechanical design, kinematic modeling and stability verification.
+    \item \textbf{PPO, TD3 and SAC} policies with waypoint-based reward shaping reach \textbf{over 90\%} success in walking and running; developed in Gazebo, PyBullet and Isaac Gym and deployed through a \textbf{ROS2 sim-to-real} pipeline.
+  \end{bullets}
+
+  \project{Hierarchical RL for Collision-Free Locomotion of an Underactuated Biped}{Feb 2026 -- Jul 2026}
+          {Under \textbf{Dr. Amit Shukla}, Indian Institute of Technology Mandi}
+  \begin{bullets}
+    \item High-level waypoint policy plus low-level gait policy, trained in PyBullet with up to 20 obstacles: \textbf{98\%} success (SPL 0.955) in simulation and \textbf{92\%} (SPL 0.884) on hardware.
+  \end{bullets}
+
+  \project{Deep RL for Vision-Based UAV Tracking by an Autonomous Ground Vehicle}{Jan 2026 -- Aug 2026}
+          {Under \textbf{Dr. Amit Shukla}, Centre for AI \& Robotics, IIT Mandi \ [\href{https://microgridx.github.io/UAV-AGV_Collaboration_website/}{Website}]}
+  \begin{bullets}
+    \item AGV tracks a \textbf{DJI Matrice 600} using a real-time \textbf{YOLOv8n} detector (5,000-frame custom dataset) on an upward camera; composite reward with a potential-based progress term.
+    \item Benchmarked DQN, TD3, SAC, TQC and \textbf{TD7}; TD7 gave the lowest steady-state error and fastest convergence.
+  \end{bullets}
+
+  \project{Autonomous Buried Power Cable Tracing}{Jan 2025 -- Jun 2026}
+          {Under \textbf{Dr. Amit Shukla}, Indian Institute of Technology Mandi}
+  \begin{bullets}
+    \item Ground robot that follows buried cables from \textbf{electromagnetic locator feedback}, with goal-free obstacle avoidance and \textbf{GPS mapping}; validated in ROS/Gazebo and outdoor hardware trials.
+  \end{bullets}
+\end{entries}
+
+%-----------PUBLICATIONS-----------------
+\section{Publications}
+\begin{bullets}
+  \item Pant, K. R., \me, Mallela, S., Surya Prakash S. K., Shukla, A., \textbf{Deep Reinforcement Learning for Vision-Based UAV Tracking by an Autonomous Ground Vehicle}, \textit{Indian Control Conference (ICC) 2026} (Accepted)
+  \item Prasad, P., Choudhury, A., \me, Kant, R., Shukla, A., \textbf{Adaptable Bipedal Locomotion for Perturbation Recovery and Uneven Terrain Navigation}, \textit{Indian Control Conference (ICC) 2026} (Accepted)
+  \item Surya Prakash S. K., Gupta, A., Suraj S. K., Anudeep D., Karthik T., Majji, S. T., \me, Datta, S., Shukla, A., \textbf{Dual-Arm Cooperative Manipulation through Shared Vision}, \textit{Indian Control Conference (ICC) 2026} (Accepted)
+  \item Datta, S., \me, Surya Prakash S. K., Shukla, A., \textbf{Hardware Model-Mediated Teleoperation for a Force-Blind Low-Cost Manipulator with a Single-Scalar Contact Sensor}, \textit{IEEE ICARCV 2026, Halong Bay, Vietnam} (Accepted, contributed oral)
+  \item Pant, K. R., Vohra, M., \me, Gupta, A., Karunamurthy, J. V., Shukla, A., \textbf{Autonomous Buried Power Cable Tracing Using Electromagnetic Locator Feedback, Goal-Free Obstacle Avoidance, and GPS Mapping}, \textit{NEECON 2026} (Accepted)
+  \item Prajapati, D., Kumar, P., Surya Prakash S. K., Mehra, A., Rana, A., \me, Reddy, T. J., Shukla, A., \textbf{Reference-Coupled Heterogeneous Multi-Agent Coordination with Real-Time Adaptive Perimeter Field Navigation}, \textit{12th IEEE ICARA 2026}, pp. 307--312
+  \item Sharma, V., \me, Shukla, A., et al., \textbf{TongueSight: AI-Powered Tongue Analysis for Digitizing Traditional Medicine Diagnostics}, \textit{16th ICVGIP 2026}, Article 22
+  \item \me, et al., \textbf{Learning Multi-Skill Locomotion in Underactuated Biped: A Waypoint-Based Reward Shaping Approach}, \textit{Eleventh Indian Control Conference (ICC-11) 2025}
+  \item \me, et al., \textbf{Design, Kinematic Modeling, and Stability Verification of a Small-Scale Biped Robot}, \textit{ICCAS 2025, Korea}
+  \item Surya Prakash S. K., Prajapati, D. K., Narula, B., \me, Shukla, A., \textbf{Kinematics-Based Real-Time Distance Monitoring for Safe Multi-Arm Robot Operations}, \textit{ICCAS 2025, Incheon, Korea}, pp. 1491--1497
+  \item \me, et al., \textbf{From Classical Control to Reinforcement Learning: Trends in Bipedal Robot Locomotion}, \textit{IEEE ICCCNT 2025}
+  \item Madhu Kumar, T. M., et al., \me, \textbf{Polyethene Composites for X-Band EMI Shielding Using MWCNT, Graphene Nanoplatelets and MgFe$_2$O$_4$ Nanoparticles}, \textit{Functional Composites and Structures}, 7(3), 2025
+  \item \me, et al., \textbf{A Novel Approach for Payload Design to Streamline Deep Space Missions: Molecular Nanoscience}, \textit{73rd International Astronautical Congress (IAC), Paris}, 2022 \textbf{(Best Paper Award)}
+  \item \me, et al., \textbf{Design of Propulsion System for CubeSat: N$_2$O and C$_2$H$_4$ as Green Bipropellant}, \textit{Journal of Aerospace Sciences and Technologies}, 74(2), 2022
+  \item \me, et al., \textbf{Analysis and Design of a Propulsion System for an Interplanetary Mission to Venus}, \textit{IRJET}, 9(2), 2022
+\end{bullets}
+
+%-----------EXPERIENCE-----------------
+\section{Experience}
+\begin{entries}
+  \entry{Assam Government IIT-G Healthcare Foundation (AGIHF),}{Guwahati, India}
+        {Robotics Engineer Intern}{Aug 2026 -- Nov 2026}
+  \begin{bullets}
+    \item \textbf{Surgical Robotics:} designing and building a robotic manipulator that holds and positions the surgical scope (scope holder).
+  \end{bullets}
+  \entry{Indian Institute of Technology Mandi,}{Himachal Pradesh, India}
+        {Project Associate I}{Jan 2025 -- Jul 2026}
+  \begin{bullets}
+    \item \textbf{Autonomous Inspection:} led an autonomous, vision-based pipe inspection system; built the pipeline from hardware integration and sensor fusion to path planning, real-time navigation, obstacle avoidance and defect detection.
+  \end{bullets}
+  \entry{Indian Institute of Technology Mandi,}{Himachal Pradesh, India}
+        {Teaching Assistant}{Jan 2026 -- Jul 2026}
+  \begin{bullets}
+    \item \textbf{AR-525 Reinforcement Learning for Robotics:} policy gradient and actor-critic methods, simulation-based assignments and project mentoring. \textbf{IC-140 Foundation for Design Practicum:} mechatronic design and prototyping.
+  \end{bullets}
+  \entry{Dover India Private Limited,}{Bengaluru, India}
+        {Design Engineer}{Jul 2023 -- Mar 2024}
+  \begin{bullets}
+    \item \textbf{Product Development:} new product development, R\&D and automation for double diaphragm pumps; FEA and stress testing; \textbf{15\% cost reduction} through VAVE, design optimization and DFM.
+  \end{bullets}
+  \entry{Indian Space Research Organisation (ISRO),}{India}
+        {Project Trainee}{Dec 2021 -- Dec 2022}
+  \begin{bullets}
+    \item \textbf{Spacecraft Vibration Isolation:} designed and analyzed a 6-DOF vibration isolation system; validated natural frequencies against analytical models with vibration testing from 20 to 2000 Hz.
+  \end{bullets}
+\end{entries}
+
+%-----------SKILLS-----------------
+\section{Skills Summary}
+\begin{bullets}
+  \item \textbf{Languages}: Python, C, C++, MATLAB
+  \item \textbf{AI \& Learning}: Reinforcement Learning (PPO, SAC, TD3, TD7), Diffusion Policies, Deep Learning, Computer Vision (YOLO), VLMs
+  \item \textbf{Robotics \& Simulation}: ROS, ROS2, Isaac Gym, MuJoCo, PyBullet, Gazebo, motion planning, kinematics and dynamics
+  \item \textbf{Design \& Tools}: SolidWorks, UG NX, ANSYS (FEA), NASTRAN, DFMEA, DFM, Git, Linux
+\end{bullets}
+
+%-----------AWARDS-----------------
+\section{Awards, Leadership and Service}
+\begin{bullets}
+  \item \textbf{Outstanding Teaching Assistant Award}, IIT Mandi (2026); \textbf{Best Outgoing Student Award}, Ramaiah Institute of Technology (2023); \textbf{Best Paper Award}, 73rd IAC, Paris (2022)
+  \item \textbf{Mentor}, Drone and Robotics Bootcamp, IIT Mandi (Jun 2025 -- Aug 2026): hands-on sessions on drone assembly, ROS and robot control for hundreds of students
+  \item \textbf{Evaluator}, ZenTej Season 3 Hackathon, IIT Mandi (2025); \textbf{Talks} at ICC-11, ICCAS 2025 (Korea) and IEEE ICCCNT 2025; ROSCon India 2025
+  \item \textbf{Student Coordinator}, STARDUST RIT Rocketry (2020 -- 2022); \textbf{NSS Coordinator}, blood donation camps
+\end{bullets}
+
+\end{document}

@@ -20,3 +20,8 @@ Screenshot*.png
 *.mov
 *.MOV
 !media/**
+
+# LaTeX build files
+resume/*.aux
+resume/*.log
+resume/*.out
